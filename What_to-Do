@@ -4,3 +4,10 @@ wordload distribution
  wordle *1
  RPG interface *2
  main *1
+
+Possible including files:
+Wordle.cpp
+Wordle.h
+rpg.cpp
+rpg.h
+Runme.cpp
