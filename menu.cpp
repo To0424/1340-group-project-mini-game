@@ -4,48 +4,82 @@
 
 using namespace std;
 
-void setTextColor(int colorCode) {
+void setTextColor(int colorCode)
+{
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, colorCode);
 }
 
 int main()
 {
-    char choice;
-    
+    const int NUM_CHOICES = 2;
+    int selectedChoice = 1;
+    int input;
+    bool isGameStart = false;
+
+    // Prompt the user to press Up and Down arrow keys to determine their key codes
+    cout << "Press the Up arrow key: ";
+    int upKey = getch();
+    if (upKey == 0 || upKey == 224) {
+        upKey = getch();
+    }
+    cout << endl << "Press the Down arrow key: ";
+    int downKey = getch();
+    if (downKey == 0 || downKey == 224) {
+        downKey = getch();
+    }
+
     do {
-        system("cls"); // Clear the console screen
-        
-        cout << "My Awesome Game" << endl; // Add game name
-        cout << "Game Menu" << endl;
-        cout << "1. Start Game" << endl;
-        cout << "2. Options" << endl;
-        cout << "3. Exit" << endl;
-        
-        choice = getch(); // Read a character from the keyboard
-        
-        switch (choice) {
-            case '1':
-                setTextColor(12); // Set color to red
-                cout << "1. Start Game" << endl;
-                setTextColor(15); // Set color back to white
-                break;
-            case '2':
-                setTextColor(12); // Set color to red
-                cout << "2. Options" << endl;
-                setTextColor(15); // Set color back to white
-                break;
-            case '3':
-                setTextColor(12); // Set color to red
-                cout << "3. Exit" << endl;
-                setTextColor(15); // Set color back to white
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
-                getch(); // Wait for a key press to continue
-                break;
+        system("cls");
+        // Display the game name and highlight it if the game has not started
+        if (!isGameStart) {
+            setTextColor(10); // green
         }
-    } while (choice != '3');
-    
+        cout << "My Awesome Game" << endl;
+        setTextColor(15); // white
+        for (int i = 1; i <= NUM_CHOICES; i++) {
+            if (i == selectedChoice) setTextColor(12);
+            else setTextColor(15);
+
+            switch (i) {
+                case 1:
+                    cout << "1. Start Game" << endl;
+                    break;
+                case 2:
+                    cout << "2. Quit" << endl;
+                    break;
+            }
+        }
+
+        input = getch();
+        if (input == 0 || input == 224) { // check for extended key codes
+            input = getch();
+            if (input == upKey) {
+                if (selectedChoice > 1) {
+                    selectedChoice--;
+                }
+            } else if (input == downKey) {
+                if (selectedChoice < NUM_CHOICES) {
+                    selectedChoice++;
+                }
+            }
+        } else if (input == 13) {
+            switch (selectedChoice) {
+                case 1:
+                    setTextColor(14); // yellow
+                    cout << "Game Start!" << endl;
+                    _getch();
+                    isGameStart = true;
+                    selectedChoice = 1; // reset selected choice
+                    break;
+                case 2:
+                    setTextColor(14); // yellow
+                    cout << "End" << endl;
+                    _getch();
+                    return 0;
+            }
+        }
+    } while (true);
+
     return 0;
 }
