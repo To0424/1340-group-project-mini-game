@@ -9,10 +9,10 @@ void print(int x) {
     string line;
     //detect which file is printed
     { if (x==2){
-        flename=drawing_one.txt
+        filename = "drawing_one.txt";
         }
      else{
-         filename=drawing_two.txt
+        filename = "drawing_two.txt";
          }
     }
     ifstream file(filename);//open the file
