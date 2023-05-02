@@ -1,7 +1,5 @@
-//print.h
-#ifndef PRINT_H
-#define PRINT_H
+#pragma once
 
 void print(int x);
 
-#endif
+

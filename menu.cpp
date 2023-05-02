@@ -10,7 +10,7 @@ void setTextColor(int colorCode)
     SetConsoleTextAttribute(hConsole, colorCode);
 }
 
-int main()
+int menu()
 {
     const int NUM_CHOICES = 2;
     int selectedChoice = 1;

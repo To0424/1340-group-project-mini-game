@@ -93,7 +93,7 @@ void print_output(string word, vector<int> &matched) {
 
 
 
-int main() {
+int wordle() {
     HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
     int rounds;
     cout << "Number of rounds you wanna play: " << endl;
