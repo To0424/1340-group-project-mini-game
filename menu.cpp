@@ -44,7 +44,7 @@ int menu()
             switch (i) {
                 case 1:
                     cout << "1. Start Game" << endl;
-                    break;
+                    return 1;
                 case 2:
                     cout << "2. Quit" << endl;
                     break;
@@ -68,14 +68,14 @@ int menu()
                 case 1:
                     setTextColor(14); // yellow
                     cout << "Game Start!" << endl;
-                    _getch();
+                    getch();
                     isGameStart = true;
                     selectedChoice = 1; // reset selected choice
-                    break;
+                    //break;
                 case 2:
                     setTextColor(14); // yellow
                     cout << "End" << endl;
-                    _getch();
+                    getch();
                     return 0;
             }
         }

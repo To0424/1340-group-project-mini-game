@@ -6,6 +6,9 @@
 #include <windows.h>
 #include <sstream>
 #include <fstream>
+#include <cstdlib>
+#include <time.h>
+#include <stdlib.h>
 using namespace std;
 
 int number_in_wordlist = 0;
@@ -13,16 +16,19 @@ int number_in_wordlist = 0;
 /*This part is to get the target word from the word list.txt file, which is used guess. All words from the list is in uppercase*/
 
 string getWord() {
-    ifstream file ("word list.txt");
+    ifstream file ("word_list.txt");
     vector<string> word_list;
+    int number_of_word = 0;
 
     string input;
     while(file >> input) {
         word_list.push_back(input);
+        number_of_word++;
     }
-
     file.close();
 
+    number_in_wordlist = rand() % (number_of_word +1);
+    cout << number_in_wordlist << endl;
     return word_list[number_in_wordlist];
 
 }
@@ -91,17 +97,26 @@ void print_output(string word, vector<int> &matched) {
 }
 
 
-
-
 int wordle() {
+    srand(time(NULL));
     HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
+    string input;
     int rounds;
-    cout << "Number of rounds you wanna play: " << endl;
-    cin >> rounds;
+    while (true) {
+        cout << "Number of rounds you wanna play: " << endl;
+        getline(cin, input);
+        try {
+            rounds = stoi(input);
+            break;
+        }
+        catch (const std::invalid_argument& ia) {
+            cout << "Wrong input! Integer only.";
+        }
+    }
+    system("clear");
+    system("cls");
 
     for(int i = 0; i < rounds; i++){
-
-
         int attempt = 6, tried=0;
         vector<int> number_of_matched = {0, 0, 0, 0, 0};
         string targetWord = getWord();
@@ -131,7 +146,7 @@ int wordle() {
                     cout << "//////////////////////////////////////" <<endl;
                     cout << endl;
                     SetConsoleTextAttribute(h, 7);
-                    break;
+                    break; // change here to adopt on main,shop,etc
                 }
 
                 print_output(player_input, number_of_matched);
@@ -154,7 +169,7 @@ int wordle() {
             cout << "Ouch!" << endl;
         }
 
-        number_in_wordlist++; /* moving to the next target word in word list */
+        //number_in_wordlist++; /* moving to the next target word in word list */ use random! done.
 
     }
 
