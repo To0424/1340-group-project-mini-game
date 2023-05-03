@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include <string>
 
 using namespace std;
 
@@ -36,14 +37,26 @@ cout << "    `Y'    "<< "                                            "<<"       
     cout << "3. Back"<<endl;
 
     int choice;
-    do {
+    string input;
+    /*do {
         cout << "Enter your choice (1, 2 or 3): ";
         cin >> choice;
 
         if (choice != 1 && choice != 2 && choice != 3) {
             cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
         }
-    } while (choice != 1 && choice != 2 && choice != 3);
+    } while (choice != 1 && choice != 2 && choice != 3);*/
+    while (true) {
+        cout << "Enter your choice (1, 2 or 3): " << endl;
+        getline(cin, input);
+        try {
+            choice = stoi(input);
+            break;
+        }
+        catch (const std::invalid_argument& ia) {
+            cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
+        }
+    }
 
     switch (choice) {
         case 1:
