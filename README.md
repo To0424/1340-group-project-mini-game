@@ -13,6 +13,7 @@ Game Description: <br />
 --------------------
 This is a ordianry Japan style RPG game combined with wordle. <br />
 Instead of collecting items by walking around the map, we decided to implement wordle for user to make attack. <br />
+The faster you guess the word, the higher damage you can make! <br/>
 Gold will drop throughout the battle so that players can upgrade their damages and HP bar. <br />
 
 Game Rule: <br />
