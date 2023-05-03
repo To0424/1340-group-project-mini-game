@@ -1,19 +1,28 @@
 #include <iostream>
 #include <windows.h>
 
-
 using namespace std;
 
 int menu() {
 
     system("cls");
 
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
+
     cout << "Welcome to My Game!" << endl << endl;
     cout << "=======================" <<endl;
-    cout << "||   1. Start Game   ||" << endl;
+    cout << "||";
+    SetConsoleTextAttribute(hConsole, 2); 
+    cout << "   1. Start Game   ";
+    SetConsoleTextAttribute(hConsole, 15); 
+    cout << "||" << endl;
     cout << "=======================" <<endl;
-    cout << "||     2. Quit       ||" << endl;
-    cout << "=======================" <<endl <<endl;
+    cout << "||" ;
+    SetConsoleTextAttribute(hConsole, 2); 
+    cout << "     2. Quit       " ;
+    SetConsoleTextAttribute(hConsole, 15); 
+    cout << "||" << endl;
+    cout << "=======================" <<endl;
 
     int choice;
     do {
@@ -29,12 +38,12 @@ int menu() {
         case 1:
             cout << endl << "Starting game..." << endl;
 
-            return choice;
+            break;
         case 2:
             cout << endl << "Quitting game..." << endl;
 
             break;
     }
 
-    return 0;
+    return 1;
 }
