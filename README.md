@@ -1,14 +1,11 @@
 # 1340_Group155
 
----------------------------
-
 Members: 
 3036086012 CHAN Tsz Chung
 303
 303
 303
 
---------------------------
 
 Game Description:
 This is a ordianry Japan style RPG game combined with wordle.
