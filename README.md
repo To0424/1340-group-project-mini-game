@@ -1,5 +1,19 @@
 # 1340_Group155
-Private Repo for ENGG1340 Group project.
-Dont make changes unless you are fully understand what you are doing.
-// i dun know how to change the name in file in github so please ingnore print1.cpp and print1.h
-//use print.cpp and print.h instead
+============================
+Members: 
+3036086012 CHAN Tsz Chung
+303
+303
+303
+============================
+
+Game Description:
+This is a ordianry Japan style RPG game combined with wordle.
+Instead of collecting items by walking around the map, we decided to implement wordle for user to make attack.
+Gold will drop throughout the battle so that players can upgrade their damages and HP bar.
+
+Game Rule:
+1. Follow the instruction strictly.
+2. Enjoy!
+
+//missing compliation instructions
