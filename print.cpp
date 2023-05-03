@@ -8,7 +8,7 @@ void print(int x) {
     string filename ;
     string line;
     //detect which file is printed
-    { if (x==2){
+    { if (x==1){
         filename = "drawing_one.txt";
         }
      else{
