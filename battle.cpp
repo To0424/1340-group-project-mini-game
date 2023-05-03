@@ -168,10 +168,15 @@ int battle() {
 				int round_atk = atk;
 				if (round_enemy_hp <= 0) {
 					cout << "You Win Level " << level << " !";
+					level++;
+					cout << "<Press Enter to continue.>";
+					cin.ignore();
 					break;
 				}
 				else if (round_player_hp <= 0) {
 					cout << "You Lose..." << endl;
+					cout << "<Press Enter to continue.>";
+					cin.ignore();
 					break;
 				}
 				if (battleui() == 1) {//defence
