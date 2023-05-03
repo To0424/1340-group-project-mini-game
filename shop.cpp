@@ -51,7 +51,12 @@ cout << "    `Y'    "<< "                                            "<<"       
         getline(cin, input);
         try {
             choice = stoi(input);
-            break;
+            if ((choice == 1) || (choice == 2) || (choice == 3) {
+                break;
+            }
+            else {
+                cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
+            }
         }
         catch (const std::invalid_argument& ia) {
             cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
