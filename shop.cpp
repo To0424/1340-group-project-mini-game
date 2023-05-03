@@ -83,7 +83,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
     int choice;
     int count_ATK=10;
     int count_HP=10;
-    int count_passiveskill=1;
+    int count_passiveskill=0;
     
     string input, ans,a;
     while (true) 
@@ -94,13 +94,16 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
         if (choice == 4)
         {
             cout << endl << "you are going back..."<< endl;
+            Sleep(2);
+            system("clear");
+            system("cls");
             break;
         }
     switch (choice) 
     {
         case 1:
             int pay1;
-            pay1 = abs(count_ATK - 10) * 4 + 20;
+            pay1 = abs(count_ATK - 10) * 67 + 20;
             cout <<endl << "============================================================================================" << endl;
             cout << "This upgrade will consume you " << pay1 <<" Golds"<<endl;
             cout << "You have " << count_ATK << " times left" <<endl;
@@ -169,7 +172,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
             
         case 2:
             int pay2;
-            pay2 = abs(count_HP - 10) * 4 + 20;
+            pay2 = abs(count_HP - 10) * 67 + 20;
 
             cout <<endl << "============================================================================================" << endl;
             cout << "This upgrade will consume you " << pay2 <<" Golds"<<endl;
@@ -252,7 +255,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
             {
                 cout <<endl << "============================================================================================" << endl;
                 gold = gold - 500;
-                --count_passiveskill;
+                ++count_passiveskill;
                 SetConsoleTextAttribute(hConsole, 10);
                 cout << "You got a passive skill:HP Recover now!"<<endl;
                 SetConsoleTextAttribute(hConsole, 15);

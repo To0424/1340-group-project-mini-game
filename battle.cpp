@@ -13,51 +13,7 @@ using namespace std;
 
 //Are Sleep changed?
 //Are cls removed?
-
-// Function mainui is to display the mainui to player. Input will be an int, output will be an int
-int mainui() {
-	int choice = 0;
-	string input;
-	cout << "================================================================================" << endl; // length = 80
-	cout << "                                                                                " << endl;
-	cout << " █████╗ ██████╗  █████╗ ██╗  ██╗███████╗███████╗ █████╗ ██████╗  █████╗ ███████╗" << endl;
-	cout << "██╔══██╗██╔══██╗██╔══██╗██║  ██║██╔════╝██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝" << endl;
-	cout << "███████║██████╔╝██║  ╚═╝███████║█████╗  █████╗  ██║  ██║██████╔╝██║  ╚═╝█████╗  " << endl;
-	cout << "██╔══██║██╔══██╗██║  ██╗██╔══██║██╔══╝  ██╔══╝  ██║  ██║██╔══██╗██║  ██╗██╔══╝  " << endl;
-	cout << "██║  ██║██║  ██║╚█████╔╝██║  ██║███████╗██║     ╚█████╔╝██║  ██║╚█████╔╝███████╗" << endl;
-	cout << "╚═╝  ╚═╝╚═╝  ╚═╝ ╚════╝ ╚═╝  ╚═╝╚══════╝╚═╝      ╚════╝ ╚═╝  ╚═╝ ╚════╝ ╚══════╝" << endl;
-	cout << "                                                                                " << endl;
-	cout << "================================================================================" << endl;
-	cout << "                            What are you going to do?" << endl;
-	cout << "================================================================================" << endl;
-	cout << "|              1.Shop                   |                2.Battle              |" << endl;
-	cout << "================================================================================" << endl;
-	while (true) {
-		cout << "Enter your choice (1 or 2): " << endl;
-		getline(cin, input);
-		try {
-			choice = stoi(input);
-			if ((choice == 1) || (choice == 2)) {
-				if (choice == 1) {
-					cout << "Your Choice is Shop.";
-				}
-				else {
-					cout << "Your Choice is Battle.";
-				}
-				Sleep(2000);
-				return choice;
-			}
-			else {
-				cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
-			}
-		}
-		catch (const std::invalid_argument& ia) {
-			cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
-		}
-	}
-
-}
-
+// 
 // this is use to print out title of the game. No input or output.
 void init_intro() {
 	string temp;
@@ -80,15 +36,61 @@ void init_intro() {
 	//Sleep(2000);
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
-}  
+	system("cls");
+	system("clear");
+} 
 
-// Function battleui is to display the battleui to player. Input will be an int, output will be an int
+// Function mainui is to display the option "shop" and "Battle" to player. Input will be an int, output will be an int
+int mainui() {
+	int choice = 0;
+	string input;
+	cout << "================================================================================" << endl; // length = 80
+	cout << "                                                                                " << endl;
+	cout << " █████╗ ██████╗  █████╗ ██╗  ██╗███████╗███████╗ █████╗ ██████╗  █████╗ ███████╗" << endl;
+	cout << "██╔══██╗██╔══██╗██╔══██╗██║  ██║██╔════╝██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔════╝" << endl;
+	cout << "███████║██████╔╝██║  ╚═╝███████║█████╗  █████╗  ██║  ██║██████╔╝██║  ╚═╝█████╗  " << endl;
+	cout << "██╔══██║██╔══██╗██║  ██╗██╔══██║██╔══╝  ██╔══╝  ██║  ██║██╔══██╗██║  ██╗██╔══╝  " << endl;
+	cout << "██║  ██║██║  ██║╚█████╔╝██║  ██║███████╗██║     ╚█████╔╝██║  ██║╚█████╔╝███████╗" << endl;
+	cout << "╚═╝  ╚═╝╚═╝  ╚═╝ ╚════╝ ╚═╝  ╚═╝╚══════╝╚═╝      ╚════╝ ╚═╝  ╚═╝ ╚════╝ ╚══════╝" << endl;
+	cout << "                                                                                " << endl;
+	cout << "================================================================================" << endl;
+	cout << "|                           What are you going to do?                          |" << endl;
+	cout << "================================================================================" << endl;
+	cout << "|              1.Shop                   |                2.Battle              |" << endl;
+	cout << "================================================================================" << endl;
+	while (true) {
+		cout << "Enter your choice (1 or 2): " << endl;
+		getline(cin, input);
+		try {
+			choice = stoi(input);
+			if ((choice == 1) || (choice == 2)) {
+				if (choice == 1) {
+					cout << "Your Choice is Shop." << endl;
+				}
+				else {
+					cout << "Your Choice is Battle." << endl;
+				}
+				Sleep(2000);
+				return choice;
+			}
+			else {
+				cout << "Invalid choice. Please enter 1 or 2." << endl;
+			}
+		}
+		catch (const std::invalid_argument& ia) {
+			cout << "Invalid choice. Please enter 1 or 2." << endl;
+		}
+	}
+
+}
+
+// Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
 int battleui() {
 	string input;
 	int choice;
 	// drawing by Jan at inital state
 	cout << "=====================================================" << endl;
-	cout << "              What are you going to do?" << endl;
+	cout << "|             What are you going to do?             |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|        1.Defence        |          2.Attack       |" << endl;
 	cout << "=====================================================" << endl;
@@ -118,33 +120,54 @@ int battleui() {
 }
 
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
-void defenceui(int &hp,int damage) {
+void defenceui(int &p_hp,int damage) {
 	// drawing by Jan at inital state
-	int success = 0;
-	string temp;
+	float success = 0;
 	success = ((double)rand()) / RAND_MAX;
 	if (success >= 0.5) {
 		cout << "Defence Success!" << endl;
-		cout << "Damage deal by 0.5!" << endl;
-		hp -= damage*0.5;
+		cout << "Damage received reduced 50%!" << endl;
+		p_hp -= damage*0.5;
 		cout << "<Press Enter to continue.>";
-		cin >> temp;
 		cin.ignore();
+		system("cls");
+		system("clear");
 	}
 	else {
 		cout << "Defence Failed..." << endl;
 		Sleep(1000);
-		hp -= damage;
+		p_hp -= damage;
 		cout << "<Press Enter to continue.>";
-		cin >> temp;
 		cin.ignore();
+		system("cls");
+		system("clear");
 	}
 }
 
 //Function use to display and calculate damage to enemy. Input by refrence of HP and designed damage, no output.
 void attackui(int atk, int &enemyhp) {
-
+	//Jane drawing of attack
+	cout << "You deal " << atk << " damage to enemy!" << endl;
+	Sleep(1000);
+	cout << "Enemy current HP: " << enemyhp << endl;
+	Sleep(1000);
+	cout << "<Press Enter to continue.>";
+	cin.ignore();
+	system("cls");
+	system("clear");
 }
+
+//Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
+void attackbyenemyui(int& p_hp, int damage) {
+	// drawing by Jan at inital state
+	cout << "Enemy dealt " << damage << " damages to you.";
+	Sleep(1000);
+	p_hp -= damage;
+	cout << "<Press Enter to continue.>";
+	cin.ignore();
+	system("cls");
+	system("clear");
+	}
 
 int battle() {
 	srand(time(NULL));
@@ -158,32 +181,59 @@ int battle() {
 	init_intro();
 	system("cls");
 	system("clear");
-	while (level <10) {
+	while (level <10) {// how enemy attack?
 		int round_enemy_hp = enemyhp[level];
 		int round_player_hp = hp;
-		if (mainui()) {
+		int shop_or_atk = mainui();
+		if (shop_or_atk == 1) {
 			shop(gold, atk, hp, passive_skill);
 		}
-		else {
+		if (shop_or_atk == 2) {
+			system("cls");
+			system("clear");
 			while (true) {
 				int round_atk = atk;
 				if (round_enemy_hp <= 0) {
 					cout << "You Win Level " << level << " !";
 					level++;
+					Sleep(1000);
 					cout << "<Press Enter to continue.>";
 					cin.ignore();
+					system("cls");
+					system("clear");
 					break;
 				}
 				else if (round_player_hp <= 0) {
 					cout << "You Lose..." << endl;
+					Sleep(1000);
 					cout << "<Press Enter to continue.>";
 					cin.ignore();
+					system("cls");
+					system("clear");
 					break;
 				}
-				if (battleui() == 1) {//defence
-				defenceui(hp,enemyatk[level]);
+				if (passive_skill) {
+					int recover_hp = 0;
+					if (round_player_hp * 1.2 < hp) {
+						recover_hp = round_player_hp * 1.2;
+					}
+					else {
+						recover_hp = hp - round_player_hp;
+					}
+					cout << "Passive Skill!" << endl;
+					Sleep(1000);
+					cout << "HP is recovered by " << recover_hp << " !" << endl;
+					Sleep(1000);
+					cout << "<Press Enter to continue.>";
+					cin.ignore();
+					system("cls");
+					system("clear");
 				}
-				else {//attack
+				int def_or_atk = battleui();
+				if (def_or_atk == 1) {//defence
+					defenceui(hp,enemyatk[level]);
+				}
+				else if (def_or_atk == 2) {//attack
 					wordle_round = wordle();
 					switch (wordle_round) {
 					case 1:
@@ -204,7 +254,15 @@ int battle() {
 					default:
 						round_atk *= 1;
 					}
-					attackui(round_atk, round_enemy_hp);
+					if (wordle_round != -1) {
+						attackui(round_atk, round_enemy_hp);
+					}
+					else {
+						cout << "You failed to perform your desire action this round." << endl;
+						Sleep(1000);
+						attackbyenemyui(round_player_hp, enemyatk[level]);
+					}
+					
 				}
 			}
 			
