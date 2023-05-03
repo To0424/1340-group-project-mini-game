@@ -108,11 +108,11 @@ int battleui() {
 				return choice;
 			}
 			else {
-				cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
+				cout << "Invalid choice. Please enter 1 or 2." << endl;
 			}
 		}
 		catch (const std::invalid_argument& ia) {
-			cout << "Invalid choice. Please enter 1, 2 or 3." << endl;
+			cout << "Invalid choice. Please enter 1 or 2." << endl;
 		}
 	}
 }
@@ -141,7 +141,8 @@ void defenceui(int &hp,int damage) {
 	}
 }
 
-void attackui(int atk, int enemyhp) {
+//Function use to display and calculate damage to enemy. Input by refrence of HP and designed damage, no output.
+void attackui(int atk, int &enemyhp) {
 
 }
 
