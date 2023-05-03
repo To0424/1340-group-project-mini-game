@@ -28,7 +28,8 @@ string getWord() {
     file.close();
 
     number_in_wordlist = rand() % (number_of_word +1);
-    cout << number_in_wordlist << endl;
+    //cout << number_in_wordlist << endl;
+    word_list.shrink_to_fit();
     return word_list[number_in_wordlist];
 
 }
