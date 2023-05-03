@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 
+
 using namespace std;
 
 int menu() {
@@ -28,7 +29,7 @@ int menu() {
         case 1:
             cout << endl << "Starting game..." << endl;
 
-            break;
+            return choice;
         case 2:
             cout << endl << "Quitting game..." << endl;
 
