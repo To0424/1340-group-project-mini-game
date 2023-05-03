@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <windows.h>
 
 using namespace std;
@@ -6,6 +7,7 @@ using namespace std;
 int menu() {
 
     system("cls");
+    system("clear");
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
 
@@ -25,23 +27,35 @@ int menu() {
     cout << "=======================" <<endl;
 
     int choice;
-    do {
+    string input;
+    while (true) {
+        cout << "Enter your choice (1 or 2): " << endl;
+        getline(cin, input);
+        try {
+            choice = stoi(input);
+            break;
+        }
+        catch (const std::invalid_argument& ia) {
+            cout << "Invalid choice. Please enter 1 or 2." << endl;
+        }
+    }
+    /*do {
         cout << "Enter your choice (1 or 2): ";
         cin >> choice;
 
         if (choice != 1 && choice != 2) {
             cout << "Invalid choice. Please enter 1 or 2." << endl;
         }
-    } while (choice != 1 && choice != 2);
+    } while (choice != 1 && choice != 2); */
 
     switch (choice) {
         case 1:
             cout << endl << "Starting game..." << endl;
-
+            Sleep(3);
             break;
         case 2:
             cout << endl << "Quitting game..." << endl;
-
+            Sleep(3);
             break;
     }
 

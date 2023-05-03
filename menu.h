@@ -5,6 +5,5 @@
 
 using namespace std;
 
-void setTextColor(int colorCode);
 
 int menu();
