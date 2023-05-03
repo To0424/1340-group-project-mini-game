@@ -51,7 +51,7 @@ cout << "    `Y'    "<< "                                            "<<"       
         getline(cin, input);
         try {
             choice = stoi(input);
-            if ((choice == 1) || (choice == 2) || (choice == 3) {
+            if ((choice == 1) || (choice == 2) || (choice == 3)) {
                 break;
             }
             else {
