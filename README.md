@@ -7,12 +7,12 @@ Members:
 303 <br />
 
 
-Game Description:
-This is a ordianry Japan style RPG game combined with wordle.
-Instead of collecting items by walking around the map, we decided to implement wordle for user to make attack.
-Gold will drop throughout the battle so that players can upgrade their damages and HP bar.
+Game Description: <br />
+This is a ordianry Japan style RPG game combined with wordle. <br />
+Instead of collecting items by walking around the map, we decided to implement wordle for user to make attack. <br />
+Gold will drop throughout the battle so that players can upgrade their damages and HP bar. <br />
 
-Game Rule:
+Game Rule: <br />
 1. Follow the instruction strictly.
 2. Enjoy!
 
