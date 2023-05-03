@@ -9,7 +9,7 @@ int main() {
 	if (menu()) {
 		system("clear");
 		system("cls");
-		wordle();
+		
 	}
 
 return 0;

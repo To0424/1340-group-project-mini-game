@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//Are Sleep changed?
+
 int menu() {
 
     system("cls");
@@ -51,11 +53,11 @@ int menu() {
     switch (choice) {
         case 1:
             cout << endl << "Starting game..." << endl;
-            Sleep(3);
+            Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             break;
         case 2:
             cout << endl << "Quitting game..." << endl;
-            Sleep(3);
+            Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             break;
     }
 
