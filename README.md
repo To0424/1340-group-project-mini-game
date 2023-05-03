@@ -1,7 +1,7 @@
 # 1340_Group155
 
 Members: 
-3036086012 CHAN Tsz Chung
+3036086012 CHAN Tsz Chung "\n"
 303
 303
 303
