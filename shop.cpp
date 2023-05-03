@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <string>
 #include <cstdlib>
+#include "shop.h"
 
 using namespace std;
 
@@ -72,10 +73,11 @@ string showshop(int &gold, int &ATK, int &HP){
 
 }
 
-int main() {//remember here change the name and add the parameters which are gold, ATK and HP into it. Also, case 3 which is skill don't know u want how to do.
-    int gold = 100;
-    int ATK = 5;
-    int HP = 100;
+int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here change the name and add the parameters which are gold, ATK and HP into it. Also, case 3 which is skill don't know u want how to do.
+    //int gold = 100;
+    //int ATK = 5;
+    //int HP = 100;
+    //int passive_skill = 0;
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     int choice;

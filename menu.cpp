@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
+#include "menu.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ int menu() {
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
 
-    cout << "Welcome to My Game!" << endl << endl;
+    cout << "Welcome to Archeforce!" << endl << endl;
     cout << "=======================" <<endl;
     cout << "||";
     SetConsoleTextAttribute(hConsole, 2); 

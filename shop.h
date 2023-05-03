@@ -2,4 +2,4 @@
 #include <iostream>
 #include <windows.h>
 
-int shop();
+int shop(int& gold, int& ATK, int& HP, int& passive_skill);
