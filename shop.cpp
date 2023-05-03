@@ -239,7 +239,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
             cin >> ans;
             if (ans == "Y" || ans == "Yes" || ans == "yes" || ans == "YES" || ans == "y")
             {
-            if (count_passiveskill == 0 && gold >= 500) 
+            if (count_passiveskill == 1  && gold >= 500) 
             {
                 cout <<endl << "============================================================================================" << endl;
                 SetConsoleTextAttribute(hConsole, 12);
@@ -248,7 +248,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
                 Sleep(3000);
                 break;
             }
-            else if (count_passiveskill == 1 && gold >= 500) 
+            else if (count_passiveskill == 0 && gold >= 500) 
             {
                 cout <<endl << "============================================================================================" << endl;
                 gold = gold - 500;
