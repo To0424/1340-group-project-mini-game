@@ -8,6 +8,7 @@
 #include <string>
 #include <time.h>
 #include <cmath>
+#include "print-drawing.h"
 
 using namespace std;
 
@@ -126,8 +127,9 @@ int mainui() {
 // Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
 int battleui(int playerhp, int enemyhp,int enemyatk) {
 	string input;
-	int choice;
-	// drawing by Jan at inital state
+	int choice,printx;
+	printx = 3;
+	print(printx);
 	cout << "=====================================================" << endl;
 	cout << "|             What are you going to do?             |" << endl;
 	cout << "=====================================================" << endl;
@@ -158,7 +160,9 @@ int battleui(int playerhp, int enemyhp,int enemyatk) {
 
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
 int defenceui() {
-	// drawing by Jan at inital state
+	int printx;
+	printx = 5;
+	print(printx);
 	float success = 0;
 	success = ((double)rand()) / RAND_MAX;
 	if (success >= 0.5) {
@@ -183,7 +187,9 @@ int defenceui() {
 
 //Function use to display and calculate damage to enemy. Input by refrence of HP and designed damage, no output.
 void attackui(int atk, int &enemyhp) {
-	//Jane drawing of attack
+	int printx;
+	printx = 4;
+	print(printx);
 	cout << "You made " << atk << " damage to enemy!" << endl;
 	Sleep(1000);
 	if (enemyhp - atk > 0) {
@@ -203,7 +209,9 @@ void attackui(int atk, int &enemyhp) {
 
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
 void attackbyenemyui(int &p_hp, int damage) {
-	// drawing by Jan at inital state
+	int printx;
+	printx = 1;
+	print(printx);
 	cout << endl;
 	cout << "Enemy made " << damage << " damages to you." << endl;
 	Sleep(1000);
@@ -236,7 +244,7 @@ int battle() {
 	init_intro();
 	system("cls");
 	system("clear");
-	while (level < 10) {// how enemy attack?
+	while (level < 10) {
 		int round_enemy_hp = enemyhp[level];
 		int round_player_hp = hp;
 		int shop_or_atk = mainui();
@@ -252,6 +260,9 @@ int battle() {
 				int round_atk = atk;
 				// check is player won
 				if (round_enemy_hp <= 0) {
+					int printx;
+					printx = 6;
+					print(printx);
 					cout << "You Beat Level " << level << " !" << endl;
 					gold += money[level];
 					cout << endl;
@@ -270,6 +281,9 @@ int battle() {
 					break;
 				} //check is player lose
 				else if (round_player_hp <= 0) {
+					int printx;
+					printx = 2;
+					print(printx);
 					cout << "You Lose..." << endl;
 					Sleep(1000);
 					cout << "<Press Enter to continue>";

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "menu.h"
 #include "battle.h"
+#include "print-drawing.h"
 
 using namespace std;
 
@@ -10,7 +11,9 @@ int main() {
 		system("cls");
 		system("clear");
 		battle();
-		//winning outro by jane -> beat the game
+		int printx;
+		printx = 7;
+		print(printx);
 	}
 return 0;
 }
