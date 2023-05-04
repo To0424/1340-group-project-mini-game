@@ -9,6 +9,8 @@ int main() {
 		system("clear");
 		system("cls");
 		battle();
+
+		//winning outro by jane -> beat the game
 	}
 
 return 0;
