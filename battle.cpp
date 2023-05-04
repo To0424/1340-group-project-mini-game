@@ -4,7 +4,6 @@
 #include <string>
 #include "shop.h"
 #include <map>
-#include "printHP.h"
 #include <string>
 #include <time.h>
 #include <cmath>
@@ -125,7 +124,7 @@ int mainui() {
 }
 
 // Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
-int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp) {
+int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp,int level) {
 	string input;
 	int choice,printx;
 	printx = 3;
@@ -135,9 +134,9 @@ int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp) {
 	cout << "=====================================================" << endl;
 	cout << "|        1.Defence        |          2.Attack       |" << endl;
 	cout << "=====================================================" << endl;
-	cout << "|                   Current HP: " << playerhp << "                 |" << endl;
+	cout << "|        Current HP: " << playerhp << "  |    Current Level: " << level << "     |" << endl;
 	cout << "=====================================================" << endl;
-	cout << "|         Enemy HP: " << enemyhp << "     |   Enemy ATK: " << enemyatk << "        |" << endl;
+	cout << "|        Enemy HP: " << enemyhp << "     |    Enemy ATK: " << enemyatk << "        |" << endl;
 	cout << "=====================================================" << endl;
 	while (true) {
 		cout << "Enter your choice (1 or 2): " << endl;
@@ -232,7 +231,7 @@ void attackbyenemyui(int &p_hp, int damage) {
 
 int battle() {
 	srand(time(NULL));
-	int gold = 1000, atk = 10, hp = 100, passive_skill = 0, count_HP = 10, count_ATK = 10;
+	int gold = 0, atk = 10, hp = 100, passive_skill = 0, count_HP = 10, count_ATK = 10;
 	int level = 1;
 	int wordle_round = 0;
 	map<int, int> enemyhp;
@@ -326,7 +325,7 @@ int battle() {
 						Sleep(500);
 						cout << "Your HP is increased by 10!" << endl;
 					}
-					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp);
+					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp,level);
 					if (def_or_atk == 2) {//attack
 						wordle_round = wordle();
 						switch (wordle_round) {
@@ -354,11 +353,11 @@ int battle() {
 						else {
 							cout << "You failed to perform your desire action this round." << endl;
 							Sleep(1000);
+							cin.ignore();
 							cout << "<Press Enter to continue>";
 							cin.ignore();
 							system("cls");
 							system("clear");
-							attackbyenemyui(round_player_hp, enemyatk[level]);
 						}
 					}
 					turn = 1;

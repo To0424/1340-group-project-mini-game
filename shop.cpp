@@ -196,7 +196,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             {
                 cout <<endl << "============================================================================================" << endl;
                 gold = gold - pay2;
-                HP = HP+5;
+                HP = HP+10;
                 --count_HP;
 
 
