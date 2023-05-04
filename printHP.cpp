@@ -1,7 +1,7 @@
 #include<iostream>
 #include<printHP.h>
 #include<cmath>
-
+using namespace std;
 void print_hp(int &now, int &full){
     double percent=(100*now/full);
 	if (percent==0){cout << "|GAME--OVER|" ;}
