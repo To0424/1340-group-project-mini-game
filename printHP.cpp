@@ -1,9 +1,11 @@
 #include<iostream>
 #include<printHP.h>
+#include<cmath>
 
-void print_hp(int percent){
-	elif (percent==00000){cout << "|GAME--OVER|" ;}
-	elif (000<percent<10){cout << "|=         |" ;}
+void print_hp(int &now, int &full){
+    percent=(100*now/full)
+	elif (percent==0){cout << "|GAME--OVER|" ;}
+	elif (0<percent<10){cout << "|=         |" ;}
 	elif (10<=percent<20){cout << "|==        |" ;}
 	elif (20<=percent<30){cout << "|===       |" ;}
 	elif (30<=percent<40){cout << "|====      |" ;}
