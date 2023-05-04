@@ -5,12 +5,12 @@
 using namespace std;
 
 int main() {
-	if (menu()) {
-		system("clear");
+	int temp = menu();
+	if (temp) {
 		system("cls");
+		system("clear");
 		battle();
 		//winning outro by jane -> beat the game
 	}
-
 return 0;
 }

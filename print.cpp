@@ -5,7 +5,7 @@
 using namespace std;
 
 void print(int x) {
-    string filename ;
+    string filename;
     string line;
     //detect which file is printed
     { if (x==1){

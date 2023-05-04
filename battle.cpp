@@ -37,6 +37,41 @@ void init_intro() {
 	cin.ignore();
 	system("cls");
 	system("clear");
+	cout << "Tutorial:" << endl;
+	Sleep(1000);
+	cout << "This game is a combination of Wordle and RPG game." << endl;
+	Sleep(500);
+	cout << "You will be asked to choose go to Battle or Shop before entering Battle." << endl;
+	Sleep(500);
+	cout << "Please be reminded that once you entered Battle, you are not able to enter shop until you win/lose the current level." << endl;
+	Sleep(500);
+	cout << "There will be TEN level in total." << endl;
+	Sleep(500);
+	cout << "Upgrades such as Attack and HP will be avaliable in shop. Make sure to check them out if you find it is diffcult to defeat the boss!" << endl;
+	Sleep(500);
+	cout << "<Press Enter to continue.>";
+	cin.ignore();
+	system("cls");
+	system("clear");
+	cout << "After Entering Battle,You are able to choose 'Attack' or 'Defence'." << endl;
+	Sleep(500);
+	cout << "You will have to finish a wordle game before attacking the enemy." << endl;
+	Sleep(500);
+	cout << "Damage will depends on how fast you guess the word." << endl;
+	Sleep(500);
+	cout << "Defence is helpful when you are on low HP as you will get healed each round!" << endl;
+	Sleep(500);
+	cout << "<Press Enter to continue.>";
+	cin.ignore();
+	system("cls");
+	system("clear");
+	cout << "Wish you Good luck, adventurer." << endl;
+	Sleep(500);
+	cout << "<Press Enter to continue.>";
+	cin.ignore();
+	system("cls");
+	system("clear");
+
 } 
 
 // Function mainui is to display the option "shop" and "Battle" to player. Input will be an int, output will be an int
@@ -218,8 +253,8 @@ int battle() {
 					//check is play bought recover skill
 					if (passive_skill) {
 						int recover_hp = 0;
-						if (round_player_hp * 1.2 < hp) {
-							recover_hp = round_player_hp * 1.2;
+						if (hp * 0.2 + round_player_hp < hp) {
+							recover_hp = hp * 0.2 + round_player_hp;
 						}
 						else {
 							recover_hp = hp - round_player_hp;
@@ -227,11 +262,25 @@ int battle() {
 						cout << "Passive Skill!" << endl;
 						Sleep(1000);
 						cout << "HP is recovered by " << recover_hp << " !" << endl;
+						round_player_hp += recover_hp;
 						Sleep(1000);
 						cout << "<Press Enter to continue.>";
 						cin.ignore();
 						system("cls");
 						system("clear");
+					}
+					if (round_player_hp == hp) {
+						continue;
+					}else if (round_player_hp + 10 >= hp) {
+						round_player_hp += hp - round_player_hp;
+						cout << "You feel refreshing!" << endl;
+						Sleep(500);
+						cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
+					}else {
+						round_player_hp += 10;
+						cout << "You feel refreshing!" << endl;
+						Sleep(500);
+						cout << "Your HP is increased by 10!" << endl;
 					}
 					def_or_atk = battleui();
 					if (def_or_atk == 2) {//attack

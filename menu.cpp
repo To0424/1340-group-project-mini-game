@@ -60,12 +60,10 @@ int menu() {
         case 1:
             cout << endl << "Starting game..." << endl;
             Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
-            break;
+            return 1;
         case 2:
             cout << endl << "Quitting game..." << endl;
             Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
-            break;
+            return 0;
     }
-
-    return 1;
 }
