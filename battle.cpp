@@ -10,11 +10,10 @@
 
 using namespace std;
 
-
 //Are Sleep changed?
 //Are cls removed?
-// 
-// this is use to print out title of the game. No input or output.
+
+// this is use to print out title of the game. Execute once only. No input or output.
 void init_intro() {
 	string temp;
 	cout << "================================================================================" << endl; // length = 80
@@ -101,10 +100,10 @@ int battleui() {
 			choice = stoi(input);
 			if ((choice == 1) || (choice == 2)) {
 				if (choice == 1) {
-					cout << "You choose to Defence this round.";
+					cout << "You choose to Defence this round." << endl;
 				}
 				else {
-					cout << "You choose to Attack this round.";
+					cout << "You choose to Attack this round." << endl;
 				}
 				Sleep(2000);
 				return choice;
@@ -160,7 +159,7 @@ void attackui(int atk, int &enemyhp) {
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
 void attackbyenemyui(int& p_hp, int damage) {
 	// drawing by Jan at inital state
-	cout << "Enemy dealt " << damage << " damages to you.";
+	cout << "Enemy dealt " << damage << " damages to you." << endl;
 	Sleep(1000);
 	p_hp -= damage;
 	cout << "<Press Enter to continue.>";
@@ -181,10 +180,12 @@ int battle() {
 	init_intro();
 	system("cls");
 	system("clear");
-	while (level <10) {// how enemy attack?
+	while (level < 10) {// how enemy attack?
 		int round_enemy_hp = enemyhp[level];
 		int round_player_hp = hp;
 		int shop_or_atk = mainui();
+		int turn = 0;
+		int def_or_atk = 0;
 		if (shop_or_atk == 1) {
 			shop(gold, atk, hp, passive_skill);
 		}
@@ -193,6 +194,7 @@ int battle() {
 			system("clear");
 			while (true) {
 				int round_atk = atk;
+				// check is player won
 				if (round_enemy_hp <= 0) {
 					cout << "You Win Level " << level << " !";
 					level++;
@@ -202,7 +204,7 @@ int battle() {
 					system("cls");
 					system("clear");
 					break;
-				}
+				} //check is player lose
 				else if (round_player_hp <= 0) {
 					cout << "You Lose..." << endl;
 					Sleep(1000);
@@ -212,64 +214,68 @@ int battle() {
 					system("clear");
 					break;
 				}
-				if (passive_skill) {
-					int recover_hp = 0;
-					if (round_player_hp * 1.2 < hp) {
-						recover_hp = round_player_hp * 1.2;
-					}
-					else {
-						recover_hp = hp - round_player_hp;
-					}
-					cout << "Passive Skill!" << endl;
-					Sleep(1000);
-					cout << "HP is recovered by " << recover_hp << " !" << endl;
-					Sleep(1000);
-					cout << "<Press Enter to continue.>";
-					cin.ignore();
-					system("cls");
-					system("clear");
-				}
-				int def_or_atk = battleui();
-				if (def_or_atk == 1) {//defence
-					defenceui(hp,enemyatk[level]);
-				}
-				else if (def_or_atk == 2) {//attack
-					wordle_round = wordle();
-					switch (wordle_round) {
-					case 1:
-						round_atk *= 2;
-						break;
-					case 2:
-						round_atk *= 1.5;
-						break;
-					case 3:
-						round_atk *= 1.3;
-						break;
-					case 4:
-						round_atk *= 1.2;
-						break;
-					case 5:
-						round_atk *= 1.1;
-						break;
-					default:
-						round_atk *= 1;
-					}
-					if (wordle_round != -1) {
-						attackui(round_atk, round_enemy_hp);
-					}
-					else {
-						cout << "You failed to perform your desire action this round." << endl;
+				if (turn == 0) {
+					//check is play bought recover skill
+					if (passive_skill) {
+						int recover_hp = 0;
+						if (round_player_hp * 1.2 < hp) {
+							recover_hp = round_player_hp * 1.2;
+						}
+						else {
+							recover_hp = hp - round_player_hp;
+						}
+						cout << "Passive Skill!" << endl;
 						Sleep(1000);
-						attackbyenemyui(round_player_hp, enemyatk[level]);
+						cout << "HP is recovered by " << recover_hp << " !" << endl;
+						Sleep(1000);
+						cout << "<Press Enter to continue.>";
+						cin.ignore();
+						system("cls");
+						system("clear");
 					}
-					
+					def_or_atk = battleui();
+					if (def_or_atk == 2) {//attack
+						wordle_round = wordle();
+						switch (wordle_round) {
+						case 1:
+							round_atk *= 2;
+							break;
+						case 2:
+							round_atk *= 1.5;
+							break;
+						case 3:
+							round_atk *= 1.3;
+							break;
+						case 4:
+							round_atk *= 1.2;
+							break;
+						case 5:
+							round_atk *= 1.1;
+							break;
+						default:
+							round_atk *= 1;
+						}
+						if (wordle_round != -1) {
+							attackui(round_atk, round_enemy_hp);
+						}
+						else {
+							cout << "You failed to perform your desire action this round." << endl;
+							Sleep(1000);
+							attackbyenemyui(round_player_hp, enemyatk[level]);
+						}
+					}
+					turn = 1;
+				}
+				if (turn == 1) {
+					turn = 0;
+					cout << "Enemy's Turn!" << endl;
+					if (def_or_atk == 1) {
+						defenceui(hp, enemyatk[level]);
+					}
+					attackbyenemyui(round_player_hp, enemyatk[level]);
 				}
 			}
-			
 		}
 	}
-	
-	
-
 	return 0;
 }
