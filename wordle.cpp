@@ -118,7 +118,6 @@ int wordle() {
         int attempt = 6, tried=0;
         vector<int> number_of_matched = {0, 0, 0, 0, 0};
         string targetWord = getWord();
-        cout << targetWord << endl;
         string player_input;
 
         SetConsoleTextAttribute(h, 4);
