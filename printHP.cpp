@@ -5,7 +5,7 @@ using namespace std;
 
 void print_hp(int &now, int &full){
     double percent=(100*now/full);
-	if (percent==0){cout << "|GAME--OVER|" };
+	if (percent == 0) { cout << "|GAME--OVER|";  }
 	elif (0<percent<10){cout << "|=         |" };
 	elif (10<=percent<20){cout << "|==        |" };
 	elif (20<=percent<30){cout << "|===       |" };
