@@ -279,10 +279,10 @@ int battle() {
 						system("cls");
 						system("clear");
 					}else if (round_player_hp + 10 >= hp) {
-						round_player_hp += hp - round_player_hp;
 						cout << "You feel refreshing!" << endl;
 						Sleep(500);
 						cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
+						round_player_hp += hp - round_player_hp;
 					}else {
 						round_player_hp += 10;
 						cout << "You feel refreshing!" << endl;
