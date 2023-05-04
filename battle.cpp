@@ -7,6 +7,7 @@
 #include "print.h"
 #include <string>
 #include <time.h>
+#include <cmath>
 
 using namespace std;
 
@@ -119,7 +120,7 @@ int mainui() {
 }
 
 // Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
-int battleui() {
+int battleui(int playerhp, int enemyhp,int enemyatk) {
 	string input;
 	int choice;
 	// drawing by Jan at inital state
@@ -127,6 +128,10 @@ int battleui() {
 	cout << "|             What are you going to do?             |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|        1.Defence        |          2.Attack       |" << endl;
+	cout << "=====================================================" << endl;
+	cout << "|                   Current HP: " << playerhp << "                 |" << endl;
+	cout << "=====================================================" << endl;
+	cout << "|         Enemy HP: " << enemyhp << "     |   Enemy ATK: " << enemyatk << "        |" << endl;
 	cout << "=====================================================" << endl;
 	while (true) {
 		cout << "Enter your choice (1 or 2): " << endl;
@@ -192,7 +197,7 @@ void attackui(int atk, int &enemyhp) {
 }
 
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
-void attackbyenemyui(int& p_hp, int damage) {
+void attackbyenemyui(int &p_hp, int damage) {
 	// drawing by Jan at inital state
 	cout << "Enemy dealt " << damage << " damages to you." << endl;
 	Sleep(1000);
@@ -270,7 +275,8 @@ int battle() {
 						system("clear");
 					}
 					if (round_player_hp == hp) {
-						continue;
+						system("cls");
+						system("clear");
 					}else if (round_player_hp + 10 >= hp) {
 						round_player_hp += hp - round_player_hp;
 						cout << "You feel refreshing!" << endl;
@@ -282,24 +288,24 @@ int battle() {
 						Sleep(500);
 						cout << "Your HP is increased by 10!" << endl;
 					}
-					def_or_atk = battleui();
+					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level]);
 					if (def_or_atk == 2) {//attack
 						wordle_round = wordle();
 						switch (wordle_round) {
 						case 1:
-							round_atk *= 2;
+							round_atk = ceil(round_atk * 2);
 							break;
 						case 2:
-							round_atk *= 1.5;
+							round_atk = ceil(round_atk * 1.5);
 							break;
 						case 3:
-							round_atk *= 1.3;
+							round_atk = ceil(round_atk * 1.3);
 							break;
 						case 4:
-							round_atk *= 1.2;
+							round_atk = ceil(round_atk * 1.2);
 							break;
 						case 5:
-							round_atk *= 1.1;
+							round_atk = ceil(round_atk * 1.1);
 							break;
 						default:
 							round_atk *= 1;
