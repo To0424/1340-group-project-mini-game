@@ -125,7 +125,7 @@ int mainui() {
 }
 
 // Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
-int battleui(int playerhp, int enemyhp,int enemyatk) {
+int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp) {
 	string input;
 	int choice,printx;
 	printx = 3;
@@ -136,6 +136,9 @@ int battleui(int playerhp, int enemyhp,int enemyatk) {
 	cout << "|        1.Defence        |          2.Attack       |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|                   Current HP: " << playerhp << "                 |" << endl;
+	cout << "|                  ";
+	cout << print_hp(playerhp, fullhp);
+	cout << "               |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|         Enemy HP: " << enemyhp << "     |   Enemy ATK: " << enemyatk << "        |" << endl;
 	cout << "=====================================================" << endl;
@@ -326,7 +329,7 @@ int battle() {
 						Sleep(500);
 						cout << "Your HP is increased by 10!" << endl;
 					}
-					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level]);
+					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp);
 					if (def_or_atk == 2) {//attack
 						wordle_round = wordle();
 						switch (wordle_round) {
