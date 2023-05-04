@@ -1,2 +1,2 @@
 #pragma once
-int print_hp(int now, int full);
+void print_hp(int now, int full);
