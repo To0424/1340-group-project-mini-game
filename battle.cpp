@@ -188,6 +188,7 @@ void attackui(int atk, int &enemyhp) {
 	//Jane drawing of attack
 	cout << "You deal " << atk << " damage to enemy!" << endl;
 	Sleep(1000);
+	enemyhp -= atk;
 	cout << "Enemy current HP: " << enemyhp << endl;
 	Sleep(1000);
 	cout << "<Press Enter to continue.>";
