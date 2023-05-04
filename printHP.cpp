@@ -3,17 +3,17 @@
 #include<cmath>
 using namespace std;
 
-void print_hp(int &now, int &full){
+string print_hp(int &now, int &full){
     double percent=(100*now/full);
-	if (percent==0){cout << "|GAME--OVER|" ;}
-	else if (0<percent && percent<10){cout << "|=         |" ;}
-	else if (10<=percent && percent<20){cout << "|==        |" ;}
-	else if (20<=percent && percent<30){cout << "|===       |" ;}
-	else if (30<=percent && percent<40){cout << "|====      |" ;}
-	else if (40<=percent && percent<50){cout << "|=====     |" ;}
-	else if (50<=percent && percent<60){cout << "|======    |" ;}
-	else if (60<=percent && percent<70){cout << "|=======   |" ;}
-	else if (70<=percent && percent<80){cout << "|========  |" ;}
-	else if (80<=percent && percent<90){cout << "|========= |" ;}
-	else if (90<=percent && percent<=100){cout << "|==========|";}
+	if (percent==0){return "|GAME--OVER|" ;}
+	else if (0<percent && percent<10){return "|=         |" ;}
+	else if (10<=percent && percent<20){return "|==        |" ;}
+	else if (20<=percent && percent<30){return "|===       |" ;}
+	else if (30<=percent && percent<40){return "|====      |" ;}
+	else if (40<=percent && percent<50){return "|=====     |" ;}
+	else if (50<=percent && percent<60){return "|======    |" ;}
+	else if (60<=percent && percent<70){return "|=======   |" ;}
+	else if (70<=percent && percent<80){return "|========  |" ;}
+	else if (80<=percent && percent<90){return "|========= |" ;}
+	else if (90<=percent && percent<=100){return "|==========|";}
 }
