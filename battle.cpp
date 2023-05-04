@@ -29,44 +29,62 @@ void init_intro() {
 	cout << "================================================================================" << endl;
 	//Sleep(5000);
 	cout << "Welcome! Our Saviour!" << endl;
+	cout << endl;
 	//Sleep(2000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
 	cout << "This country is now under invasion from Monsters!!!" << endl;
+	cout << endl;
 	//Sleep(2000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
 	cout << "Please Help us with your super power!" << endl;
+	cout << endl;
 	//Sleep(2000);
+	cin.ignore();
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
 	system("cls");
 	system("clear");
 	cout << "Tutorial:" << endl;
+	cout << endl;
 	Sleep(1000);
 	cout << "This game is a combination of Wordle and RPG game." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "You will be asked to choose go to Battle or Shop before entering Battle." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "Please be reminded that once you entered Battle, you are not able to enter shop until you win/lose the current level." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "There will be TEN level in total." << endl;
+	cout << endl;
 	Sleep(500);
-	cout << "Upgrades such as Attack and HP will be avaliable in shop. Make sure to check them out if you find it is diffcult to defeat the boss!" << endl;
+	cout << "Upgrades such as Attack and HP will be avaliable in shop." << endl;
+	cout << endl;
+	Sleep(500);
+	cout << "Make sure to check them out if you find it is diffcult to defeat the boss!" << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
 	system("cls");
 	system("clear");
 	cout << "After Entering Battle,You are able to choose 'Attack' or 'Defence'." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "You will have to finish a wordle game before attacking the enemy." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "Damage will depends on how fast you guess the word." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "Defence is helpful when you are on low HP as you will get healed each round!" << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
 	system("cls");
 	system("clear");
-	cout << "Wish you Good luck, adventurer." << endl;
+	cout << "Wish you Good luck, Adventurer." << endl;
+	cout << endl;
 	Sleep(500);
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
@@ -77,8 +95,7 @@ void init_intro() {
 
 // Function mainui is to display the option "shop" and "Battle" to player. Input will be an int, output will be an int
 int mainui() {
-	int choice = 0;
-	string input;
+	string choice;
 	cout << "================================================================================" << endl; // length = 80
 	cout << "                                                                                " << endl;
 	cout << " █████╗ ██████╗  █████╗ ██╗  ██╗███████╗███████╗ █████╗ ██████╗  █████╗ ███████╗" << endl;
@@ -95,28 +112,15 @@ int mainui() {
 	cout << "================================================================================" << endl;
 	while (true) {
 		cout << "Enter your choice (1 or 2): " << endl;
-		getline(cin, input);
-		try {
-			choice = stoi(input);
-			if ((choice == 1) || (choice == 2)) {
-				if (choice == 1) {
-					cout << "Your Choice is Shop." << endl;
-				}
-				else {
-					cout << "Your Choice is Battle." << endl;
-				}
-				Sleep(2000);
-				return choice;
-			}
-			else {
-				cout << "Invalid choice. Please enter 1 or 2." << endl;
-			}
+		cin >> choice;
+		if ((choice == "1") || (choice == "2"))
+		{
+			return stoi(choice);
 		}
-		catch (const std::invalid_argument& ia) {
+		else {
 			cout << "Invalid choice. Please enter 1 or 2." << endl;
-		}
+		}	
 	}
-
 }
 
 // Function battleui is to display the option "Defence" and "Attack" to player. Input will be an int, output will be an int
@@ -135,63 +139,63 @@ int battleui(int playerhp, int enemyhp,int enemyatk) {
 	cout << "=====================================================" << endl;
 	while (true) {
 		cout << "Enter your choice (1 or 2): " << endl;
-		getline(cin, input);
-		try {
+		cin >> input;
+		if ((input == "1") || (input == "2")) {
 			choice = stoi(input);
-			if ((choice == 1) || (choice == 2)) {
-				if (choice == 1) {
-					cout << "You choose to Defence this round." << endl;
-				}
-				else {
-					cout << "You choose to Attack this round." << endl;
-				}
-				Sleep(2000);
-				return choice;
+			if (choice == 1) {
+				cout << "You choose to Defence this round." << endl;
 			}
 			else {
-				cout << "Invalid choice. Please enter 1 or 2." << endl;
+				cout << "You choose to Attack this round." << endl;
 			}
-		}
-		catch (const std::invalid_argument& ia) {
+			Sleep(2000);
+			return choice;
+		}else{
 			cout << "Invalid choice. Please enter 1 or 2." << endl;
 		}
 	}
 }
 
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
-void defenceui(int &p_hp,int damage) {
+int defenceui() {
 	// drawing by Jan at inital state
 	float success = 0;
 	success = ((double)rand()) / RAND_MAX;
 	if (success >= 0.5) {
 		cout << "Defence Success!" << endl;
 		cout << "Damage received reduced 50%!" << endl;
-		p_hp -= damage*0.5;
 		cout << "<Press Enter to continue.>";
 		cin.ignore();
 		system("cls");
 		system("clear");
+		return 1;
 	}
 	else {
 		cout << "Defence Failed..." << endl;
 		Sleep(1000);
-		p_hp -= damage;
 		cout << "<Press Enter to continue.>";
 		cin.ignore();
 		system("cls");
 		system("clear");
+		return 0;
 	}
 }
 
 //Function use to display and calculate damage to enemy. Input by refrence of HP and designed damage, no output.
 void attackui(int atk, int &enemyhp) {
 	//Jane drawing of attack
-	cout << "You deal " << atk << " damage to enemy!" << endl;
+	cout << "You made " << atk << " damage to enemy!" << endl;
 	Sleep(1000);
-	enemyhp -= atk;
+	if (enemyhp - atk > 0) {
+		enemyhp -= atk;
+	}
+	else {
+		enemyhp = 0;
+	}
 	cout << "Enemy current HP: " << enemyhp << endl;
 	Sleep(1000);
 	cout << "<Press Enter to continue.>";
+	cin.ignore();
 	cin.ignore();
 	system("cls");
 	system("clear");
@@ -200,9 +204,16 @@ void attackui(int atk, int &enemyhp) {
 //Function use to display and calculate damage to player. Input by refrence of HP and designed damage, no output.
 void attackbyenemyui(int &p_hp, int damage) {
 	// drawing by Jan at inital state
-	cout << "Enemy dealt " << damage << " damages to you." << endl;
+	cout << endl;
+	cout << "Enemy made " << damage << " damages to you." << endl;
 	Sleep(1000);
-	p_hp -= damage;
+	if (p_hp - damage > 0) {
+		p_hp -= damage;
+	}
+	else {
+		p_hp = 0;
+	}
+	cout << endl;
 	cout << "<Press Enter to continue.>";
 	cin.ignore();
 	system("cls");
@@ -218,6 +229,8 @@ int battle() {
 	enemyhp[1] = 30; enemyhp[2] = 40; enemyhp[3] = 50; enemyhp[4] = 70; enemyhp[5] = 100; enemyhp[6] = 120; enemyhp[7] = 150; enemyhp[8] = 160; enemyhp[9] = 160; enemyhp[10] = 200;
 	map<int, int> enemyatk;
 	enemyatk[1] = 10; enemyatk[2] = 15; enemyatk[3] = 20; enemyatk[4] = 20; enemyatk[5] = 30; enemyatk[6] = 30; enemyatk[7] = 40; enemyatk[8] = 40; enemyatk[9] = 45; enemyatk[10] = 50;
+	map<int, int> money;
+	money[1] = 25; money[2] = 50; money[3] = 75; money[4] = 100; money[5] = 150; money[6] = 200; money[7] = 250; money[8] = 300; money[9] = 300;
 	init_intro();
 	system("cls");
 	system("clear");
@@ -237,7 +250,15 @@ int battle() {
 				int round_atk = atk;
 				// check is player won
 				if (round_enemy_hp <= 0) {
-					cout << "You Win Level " << level << " !";
+					cout << "You Beat Level " << level << " !" << endl;
+					gold += money[level];
+					cout << endl;
+					cout << "You earned " << money[level] << " !" << endl;
+					cout << endl;
+					cout << "Your current have: " << gold << " gold(s)." << endl;
+					cout << endl;
+					cout << "Don't forget to spend them all in shop!" << endl;
+					cout << endl;
 					level++;
 					Sleep(1000);
 					cout << "<Press Enter to continue.>";
@@ -317,18 +338,30 @@ int battle() {
 						else {
 							cout << "You failed to perform your desire action this round." << endl;
 							Sleep(1000);
+							cout << "<Press Enter to continue.>";
+							cin.ignore();
+							system("cls");
+							system("clear");
 							attackbyenemyui(round_player_hp, enemyatk[level]);
 						}
 					}
 					turn = 1;
 				}
-				if (turn == 1) {
+				if ((turn == 1) && (round_enemy_hp>0)) {
+					int temp = 0;
 					turn = 0;
-					cout << "Enemy's Turn!" << endl;
+					cout << "Enemy's Turn!";
+					cout << endl;
 					if (def_or_atk == 1) {
-						defenceui(hp, enemyatk[level]);
+						temp = defenceui();
 					}
-					attackbyenemyui(round_player_hp, enemyatk[level]);
+					if (temp) {
+						int atk = enemyatk[level] / 2;
+						attackbyenemyui(round_player_hp, atk);
+					}
+					else {
+						attackbyenemyui(round_player_hp, enemyatk[level]);
+					}
 				}
 			}
 		}

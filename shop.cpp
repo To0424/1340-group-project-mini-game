@@ -55,7 +55,7 @@ string showshop(int &gold, int &ATK, int &HP){
     cout << "============================================================================================" << endl;
 
     //int choice;//
-    string choice, input;
+    string choice;
     while (true) {
         cout << "Enter your choice (1, 2, 3 or 4): " << endl;
         cin >> choice;
@@ -94,7 +94,7 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
         if (choice == 4)
         {
             cout << endl << "you are going back..."<< endl;
-            Sleep(2);
+            Sleep(1000);
             system("clear");
             system("cls");
             break;

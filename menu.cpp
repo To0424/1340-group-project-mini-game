@@ -32,18 +32,12 @@ int menu() {
     int choice;
     string input;
     while (true) {
-        cout << "Enter your choice (1 or 2): " << endl;
-        getline(cin, input);
-        try {
+        cout << "Enter your choice (1 or 2): ";
+        cin >> input;
+        if ((input == "1") || (input == "2")) {
             choice = stoi(input);
-            if ((choice == 1) || (choice == 2)) {
-                break;
-            }
-            else {
-                cout << "Invalid choice. Please enter 1 or 2." << endl;
-            }
-        }
-        catch (const std::invalid_argument& ia) {
+            break;
+        }else {
             cout << "Invalid choice. Please enter 1 or 2." << endl;
         }
     }
