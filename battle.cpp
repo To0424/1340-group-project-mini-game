@@ -4,7 +4,7 @@
 #include <string>
 #include "shop.h"
 #include <map>
-#include "print.h"
+#include "printHP.h"
 #include <string>
 #include <time.h>
 #include <cmath>
