@@ -240,6 +240,7 @@ void attackbyenemyui(int &p_hp, int damage) {
 	system("clear");
 	}
 
+//Main function to run the game. No input. Return 0 to main.cpp if player won.
 int battle() {
 	srand(time(NULL));
 	int gold = 0, atk = 10, hp = 100, passive_skill = 0, count_HP = 10, count_ATK = 10;

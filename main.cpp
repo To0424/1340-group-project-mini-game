@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//Function for running the game. No input. No output.
 int main() {
 	cout << "Please Use Full Screen mode!" << endl;
 	cout << "<Press Enter once completed>";
@@ -19,6 +20,10 @@ int main() {
 		int printx;
 		printx = 7;
 		print(printx);
+		cout << "<Press Enter to End the Game>";
+		cin.ignore();
+		system("cls");
+		system("clear");
 	}
 return 0;
 }
