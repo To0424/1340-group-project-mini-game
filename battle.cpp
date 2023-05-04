@@ -38,7 +38,7 @@ void init_intro() {
 	cout << endl;
 	//Sleep(2000);
 	cin.ignore();
-	cout << "<Press Enter to continue.>";
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	system("cls");
 	system("clear");
@@ -63,7 +63,7 @@ void init_intro() {
 	cout << "Make sure to check them out if you find it is diffcult to defeat the boss!" << endl;
 	cout << endl;
 	Sleep(500);
-	cout << "<Press Enter to continue.>";
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	system("cls");
 	system("clear");
@@ -79,14 +79,14 @@ void init_intro() {
 	cout << "Defence is helpful when you are on low HP as you will get healed each round!" << endl;
 	cout << endl;
 	Sleep(500);
-	cout << "<Press Enter to continue.>";
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	system("cls");
 	system("clear");
 	cout << "Wish you Good luck, Adventurer." << endl;
 	cout << endl;
 	Sleep(500);
-	cout << "<Press Enter to continue.>";
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	system("cls");
 	system("clear");
@@ -164,7 +164,7 @@ int defenceui() {
 	if (success >= 0.5) {
 		cout << "Defence Success!" << endl;
 		cout << "Damage received reduced 50%!" << endl;
-		cout << "<Press Enter to continue.>";
+		cout << "<Press Enter to continue>";
 		cin.ignore();
 		system("cls");
 		system("clear");
@@ -173,7 +173,7 @@ int defenceui() {
 	else {
 		cout << "Defence Failed..." << endl;
 		Sleep(1000);
-		cout << "<Press Enter to continue.>";
+		cout << "<Press Enter to continue>";
 		cin.ignore();
 		system("cls");
 		system("clear");
@@ -194,7 +194,7 @@ void attackui(int atk, int &enemyhp) {
 	}
 	cout << "Enemy current HP: " << enemyhp << endl;
 	Sleep(1000);
-	cout << "<Press Enter to continue.>";
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	cin.ignore();
 	system("cls");
@@ -214,7 +214,9 @@ void attackbyenemyui(int &p_hp, int damage) {
 		p_hp = 0;
 	}
 	cout << endl;
-	cout << "<Press Enter to continue.>";
+	cout << "Your current HP: " << p_hp << "." << endl;
+	cout << endl;
+	cout << "<Press Enter to continue>";
 	cin.ignore();
 	system("cls");
 	system("clear");
@@ -222,7 +224,7 @@ void attackbyenemyui(int &p_hp, int damage) {
 
 int battle() {
 	srand(time(NULL));
-	int gold = 0, atk = 10, hp = 100, passive_skill = 0;
+	int gold = 1000, atk = 10, hp = 100, passive_skill = 0, count_HP = 10, count_ATK = 10;
 	int level = 1;
 	int wordle_round = 0;
 	map<int, int> enemyhp;
@@ -241,7 +243,7 @@ int battle() {
 		int turn = 0;
 		int def_or_atk = 0;
 		if (shop_or_atk == 1) {
-			shop(gold, atk, hp, passive_skill);
+			shop(gold, atk, hp, passive_skill, count_ATK, count_HP);
 		}
 		if (shop_or_atk == 2) {
 			system("cls");
@@ -261,7 +263,7 @@ int battle() {
 					cout << endl;
 					level++;
 					Sleep(1000);
-					cout << "<Press Enter to continue.>";
+					cout << "<Press Enter to continue>";
 					cin.ignore();
 					system("cls");
 					system("clear");
@@ -270,7 +272,7 @@ int battle() {
 				else if (round_player_hp <= 0) {
 					cout << "You Lose..." << endl;
 					Sleep(1000);
-					cout << "<Press Enter to continue.>";
+					cout << "<Press Enter to continue>";
 					cin.ignore();
 					system("cls");
 					system("clear");
@@ -291,7 +293,7 @@ int battle() {
 						cout << "HP is recovered by " << recover_hp << " !" << endl;
 						round_player_hp += recover_hp;
 						Sleep(1000);
-						cout << "<Press Enter to continue.>";
+						cout << "<Press Enter to continue>";
 						cin.ignore();
 						system("cls");
 						system("clear");
@@ -338,7 +340,7 @@ int battle() {
 						else {
 							cout << "You failed to perform your desire action this round." << endl;
 							Sleep(1000);
-							cout << "<Press Enter to continue.>";
+							cout << "<Press Enter to continue>";
 							cin.ignore();
 							system("cls");
 							system("clear");

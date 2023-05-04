@@ -6,7 +6,7 @@
 
 using namespace std;
 
-string showshop(int &gold, int &ATK, int &HP){
+string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){
     system("cls");
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     SetConsoleTextAttribute(hConsole, 11);
@@ -25,6 +25,11 @@ string showshop(int &gold, int &ATK, int &HP){
     cout << "You have: "<< gold << " gold"<< endl;
     cout << "Your ATK: "<< ATK << endl;
     cout << "Your HP: "<< HP << endl;
+    string temp = "False";
+    if (count_passiveskill) {
+        temp = "True";
+    }
+    cout << "Passive Skill: " << temp << endl;
     SetConsoleTextAttribute(hConsole, 15); 
     cout << "============================================================================================" <<endl;
 
@@ -73,7 +78,7 @@ string showshop(int &gold, int &ATK, int &HP){
 
 }
 
-int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here change the name and add the parameters which are gold, ATK and HP into it. Also, case 3 which is skill don't know u want how to do.
+int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int &count_HP) {//remember here change the name and add the parameters which are gold, ATK and HP into it. Also, case 3 which is skill don't know u want how to do.
     //int gold = 100;
     //int ATK = 5;
     //int HP = 100;
@@ -81,15 +86,12 @@ int shop(int &gold, int &ATK, int &HP,int &passive_skill) {//remember here chang
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     int choice;
-    int count_ATK=10;
-    int count_HP=10;
-    int count_passiveskill=0;
     
     string input, ans,a;
     while (true) 
     {
 
-        choice = stoi(showshop(gold,ATK,HP));
+        choice = stoi(showshop(gold,ATK,HP,count_passiveskill));
         
         if (choice == 4)
         {
