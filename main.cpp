@@ -6,6 +6,11 @@
 using namespace std;
 
 int main() {
+	cout << "Please Use Full Screen mode!" << endl;
+	cout << "<Press Enter once completed>";
+	cin.ignore();
+	system("cls");
+	system("clear");
 	int temp = menu();
 	if (temp) {
 		system("cls");

@@ -45,7 +45,16 @@ void init_intro() {
 	cout << "Tutorial:" << endl;
 	cout << endl;
 	Sleep(1000);
-	cout << "This game is a combination of Wordle and RPG game." << endl;
+	cout << "This game is a combination of Wordle and Rouge-like RPG game." << endl;
+	cout << endl;
+	Sleep(500);
+	cout << "This means once you die, you have to play it again." << endl;
+	cout << endl;
+	Sleep(500);
+	cout << "All your play data will be Gone." << endl;
+	cout << endl;
+	Sleep(500);
+	cout << "So make your decision wisely." << endl;
 	cout << endl;
 	Sleep(500);
 	cout << "You will be asked to choose go to Battle or Shop before entering Battle." << endl;
@@ -94,7 +103,7 @@ void init_intro() {
 } 
 
 // Function mainui is to display the option "shop" and "Battle" to player. Input will be an int, output will be an int
-int mainui() {
+int mainui(int level) {
 	string choice;
 	cout << "================================================================================" << endl; // length = 80
 	cout << "                                                                                " << endl;
@@ -107,6 +116,8 @@ int mainui() {
 	cout << "                                                                                " << endl;
 	cout << "================================================================================" << endl;
 	cout << "|                           What are you going to do?                          |" << endl;
+	cout << "================================================================================" << endl;
+	cout << "|                                 Level: " << level << "                                     |" << endl;
 	cout << "================================================================================" << endl;
 	cout << "|              1.Shop                   |                2.Battle              |" << endl;
 	cout << "================================================================================" << endl;
@@ -246,7 +257,7 @@ int battle() {
 	while (level < 10) {
 		int round_enemy_hp = enemyhp[level];
 		int round_player_hp = hp;
-		int shop_or_atk = mainui();
+		int shop_or_atk = mainui(level);
 		int turn = 0;
 		int def_or_atk = 0;
 		if (shop_or_atk == 1) {
@@ -267,7 +278,7 @@ int battle() {
 					cout << endl;
 					cout << "You earned " << money[level] << " !" << endl;
 					cout << endl;
-					cout << "Your current have: " << gold << " gold(s)." << endl;
+					cout << "You current have: " << gold << " gold(s)." << endl;
 					cout << endl;
 					cout << "Don't forget to spend them all in shop!" << endl;
 					cout << endl;

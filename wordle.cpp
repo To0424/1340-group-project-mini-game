@@ -125,8 +125,6 @@ int wordle() {
         cout << "//////////////////////////////////////" <<endl;
         cout << "/      Can You Guess the Word ?      /" << endl;
         cout << "//////////////////////////////////////" <<endl;
-        cout << "/         Guess Remaining: " << 6 - i << "        /" << endl;
-        cout << "//////////////////////////////////////" << endl;
         SetConsoleTextAttribute(h, 7);
 
         while(tried < attempt) {
@@ -161,6 +159,9 @@ int wordle() {
 
                 print_output(player_input, number_of_matched);
                 cout << endl;
+                cout << "//////////////////////////////////////" << endl;
+                cout << "/         Guess Remaining: " << 5-tried << "         /" << endl;
+                cout << "//////////////////////////////////////" << endl;
 
                 for(int i = 0; i < number_of_matched.size(); i++) {
                     number_of_matched[i] = 0;
