@@ -9,7 +9,7 @@ void print(int &x) {
     string line;
     //detect which file is printed
     { 
-    if (x==1){filename = "player_being_attack";}
+    if (x==1){filename = "player_being_attack.txt";}
     else if (x==2){filename="player lose.txt";}
     else if (x==3){filename="player ready fight.txt";}
     else if (x==4){filename="player_attack.txt";}
