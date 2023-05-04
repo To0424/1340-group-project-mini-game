@@ -136,9 +136,6 @@ int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp) {
 	cout << "|        1.Defence        |          2.Attack       |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|                   Current HP: " << playerhp << "                 |" << endl;
-	cout << "|                  ";
-	cout << print_hp(playerhp, fullhp);
-	cout << "               |" << endl;
 	cout << "=====================================================" << endl;
 	cout << "|         Enemy HP: " << enemyhp << "     |   Enemy ATK: " << enemyatk << "        |" << endl;
 	cout << "=====================================================" << endl;

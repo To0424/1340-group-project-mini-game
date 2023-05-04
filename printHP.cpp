@@ -3,7 +3,7 @@
 #include<cmath>
 using namespace std;
 
-string print_hp(int &now, int &full){
+string print_hp(now, full){
     double percent=(100*now/full);
 	if (percent==0){return "|GAME--OVER|" ;}
 	else if (0<percent && percent<10){return "|=         |" ;}
