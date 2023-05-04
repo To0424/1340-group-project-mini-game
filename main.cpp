@@ -20,7 +20,7 @@ int main() {
 		int printx;
 		printx = 7;
 		print(printx);
-		cout << "<Press Enter to End the Game>";
+		cout << "<Press Enter to Exit the Game>";
 		cin.ignore();
 		system("cls");
 		system("clear");
