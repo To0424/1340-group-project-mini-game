@@ -6,7 +6,10 @@
 
 using namespace std;
 
-string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){
+string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This function will show what you can buy in the shop, //
+                                                                       //and allow you to go back previous page.//
+                                                                       //User input is the what you choose to buy(1,2,3) and 4 is going back. 
+                                                                       //The output of user input will show in the shop function.      
     system("cls");
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     SetConsoleTextAttribute(hConsole, 11);
@@ -78,11 +81,16 @@ string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){
 
 }
 
-int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int &count_HP) {//remember here change the name and add the parameters which are gold, ATK and HP into it. Also, case 3 which is skill don't know u want how to do.
-    //int gold = 100;
-    //int ATK = 5;
-    //int HP = 100;
-    //int passive_skill = 0;
+int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int &count_HP) {
+    
+                                                            //This function is a confirm page for what you have chose in the shop list.
+                                                            //allow you to confirm the price of everything in shop
+                                                            //Also telling user the maximum times of buying the item.
+                                                            //You are also allowed to go back to shop list, if you enter wrong your choice in shop list.
+                                                            //The first input of this function is in the function showshop, 
+                                                            //The second input is confirm whether you buy or not. (Y/N)
+                                                            //The output is some text for you to confirm you are bought what you wanted. 
+                                                            //And what it actually do is to change your status after you bought the thing by pass by reference.
 
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     int choice;
