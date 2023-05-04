@@ -313,20 +313,20 @@ int battle() {
 						cin.ignore();
 						//system("cls");
 						system("clear");
-					}
-					if (round_player_hp == hp) {
-						//system("cls");
-						system("clear");
-					}else if (round_player_hp + 10 >= hp) {
-						cout << "You feel refreshing!" << endl;
-						Sleep(1);
-						cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
-						round_player_hp += hp - round_player_hp;
-					}else {
-						round_player_hp += 10;
-						cout << "You feel refreshing!" << endl;
-						Sleep(1);
-						cout << "Your HP is increased by 10!" << endl;
+					}else{
+						if (round_player_hp == hp) {
+							system("clear");
+						}else if (round_player_hp + 10 >= hp) {
+							cout << "You feel refreshing!" << endl;
+							Sleep(1);
+							cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
+							round_player_hp += hp - round_player_hp;
+						}else {
+							round_player_hp += 10;
+							cout << "You feel refreshing!" << endl;
+							Sleep(1);
+							cout << "Your HP is increased by 10!" << endl;
+						}
 					}
 					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp,level);
 					if (def_or_atk == 2) {//attack
