@@ -9,13 +9,13 @@ void print(int &x) {
     string line;
     //detect which file is printed
     { 
-    if (x==1){filename = "player_being_attack"};
-    elif (x==2){filename="player lose.txt"};
-    elif (x==3){filename="player ready fight.txt"};
-    elif (x==4){filename="player_attack.txt"};
-    elif (x==5){filename="player defense.txt"};
-    elif (x==6){filename="player win.txt"};
-    elif (x==7){filename="player-win-final.txt"};
+    if (x==1){filename = "player_being_attack";}
+    else if (x==2){filename="player lose.txt";}
+    else if (x==3){filename="player ready fight.txt";}
+    else if (x==4){filename="player_attack.txt";}
+    else if (x==5){filename="player defense.txt";}
+    else if (x==6){filename="player win.txt";}
+    else if (x==7){filename="player-win-final.txt";}
     }
     ifstream file(filename);//open the file
     //if the file can be opened successfully
