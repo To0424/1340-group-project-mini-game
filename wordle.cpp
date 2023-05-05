@@ -109,7 +109,6 @@ int wordle() {
     srand(time(NULL));
 
     system("clear");
-    system("cls");
 
     for(int i = 0; i < 6; i++){
         int attempt = 6, tried=0;
