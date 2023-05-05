@@ -33,13 +33,17 @@ int menu() {                      //This function have no input, but the return 
 
     int choice;
     string input;
-    while (true) {
+    while (true) 
+    {
         cout << "Enter your choice (1 or 2): ";
         cin >> input;
-        if ((input == "1") || (input == "2")) {
+        if ((input == "1") || (input == "2")) 
+        {
             choice = stoi(input);
             break;
-        }else {
+        }
+      else 
+      {
             cout << "Invalid choice. Please enter 1 or 2." << endl;
         }
     }
@@ -53,5 +57,5 @@ int menu() {                      //This function have no input, but the return 
             cout << endl << "Quitting game..." << endl;
             sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             return 0;
-    }
+    
 }
