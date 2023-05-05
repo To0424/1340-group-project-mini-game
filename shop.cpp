@@ -145,7 +145,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                     sleep(0.2);cout << "something";sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";
                     sleep(0.2);cout <<"You're";sleep(0.2);cout<<" filled with";
                     sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";sleep(0.1);
-                    cout >> "\033[1;31m";
+                    cout << "\033[1;31m";
                     cout<<"POWER." <<endl;
                     cout << "\033[1m";
                     sleep(1);
