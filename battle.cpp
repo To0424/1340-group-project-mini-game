@@ -7,6 +7,7 @@
 #include <ctime>
 #include <cmath>
 #include "print-drawing.h"
+#include <unistd.h>
 
 using namespace std;
 
