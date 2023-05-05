@@ -1,10 +1,10 @@
-﻿#include <iostream>
+#include <iostream>
 #include "wordle.h"
 #include <string>
 #include "shop.h"
 #include <map>
 #include <string>
-#include <time.h>
+#include <ctime>
 #include <cmath>
 #include "print-drawing.h"
 

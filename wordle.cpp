@@ -2,8 +2,6 @@
 #include <string>
 #include <vector>
 #include <ctype.h>
-#include <windows.h>
-#include <windows.h>
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
@@ -27,7 +25,7 @@ string getWord() {
     }
     file.close();
 
-    number_in_wordlist = rand() % (number_of_word +1);
+    number_in_wordlist = rand() % (number_of_word);
     //cout << number_in_wordlist << endl;
     word_list.shrink_to_fit();
     return word_list[number_in_wordlist];
@@ -78,38 +76,37 @@ void toUpperCase(string &word) {
 /* to print out players' input word and to show how many words is matched according to number_of_matched vector. The matched word will be shown in green colour. */
 
 void print_output(string word, vector<int> &matched) {
-    HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(h, 6);
+
+    cout << "\033[33m";
     cout << "//////////////////////////////////////" <<endl;
     cout << "/                                    /" << endl;
     cout << "/";
-    SetConsoleTextAttribute(h, 7);
+    cout << "\033[0m";
     for(int i = 0; i < matched.size(); i++) {
         if(matched[i] == 1) {
-            SetConsoleTextAttribute(h, 10);
+            cout << "\033[32m";
             cout << " | " << word[i] << " | ";
         } else if(matched[i] == 0){
-            SetConsoleTextAttribute(h, 4);
+            cout << "\033[31m";
             cout << " | " << word[i] << " | ";
         } else if(matched[i] == 2) {
-            SetConsoleTextAttribute(h, 6);
+            cout << "\033[33m";
             cout << " | " << word[i] << " | ";
         }
     }
-    SetConsoleTextAttribute(h, 6);
+    cout << "\033[33m";
     cout << " / " << endl;
     cout << "/                                    /" << endl;
     cout << "//////////////////////////////////////" <<endl;
-    SetConsoleTextAttribute(h, 7);
+    cout << "\033[0m";
 
-    SetConsoleTextAttribute(h, 7);
+
 
 }
 
 
 int wordle() {
     srand(time(NULL));
-    HANDLE h= GetStdHandle(STD_OUTPUT_HANDLE);
 
     system("clear");
     system("cls");
@@ -120,11 +117,11 @@ int wordle() {
         string targetWord = getWord();
         string player_input;
 
-        SetConsoleTextAttribute(h, 4);
+        cout << "\033[31m";
         cout << "//////////////////////////////////////" <<endl;
         cout << "/      Can You Guess the Word ?      /" << endl;
         cout << "//////////////////////////////////////" <<endl;
-        SetConsoleTextAttribute(h, 7);
+        cout << "\033[0m";
 
         while(tried < attempt) {
 
@@ -142,12 +139,12 @@ int wordle() {
                 if(correct == 0) {
                     print_output(player_input, number_of_matched);
                     cout << endl;
-                    SetConsoleTextAttribute(h, 2);
+                    cout << "\033[32m";
                     cout << "//////////////////////////////////////" <<endl;
                     cout << "/      correct! Attack is ready!     /" << endl;
                     cout << "//////////////////////////////////////" <<endl;
                     cout << endl;
-                    SetConsoleTextAttribute(h, 7);
+                    cout << "\033[0m";
 
                     if(tried < 6) {
                         return tried+1;
@@ -186,4 +183,3 @@ int wordle() {
 
     return 0;
 }
-

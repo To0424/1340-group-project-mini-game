@@ -1,10 +1,10 @@
 # 1340_Group155
 
 Members:  <br />
-3036086012 CHAN Tsz Chung <br />
-3036050726 WU Kwun To <br />
-3036066191 WONG Ho Wang <br />
-303 CHAN Wai Yiu<br />
+3036086012 CHAN Tsz Chung | Github_Username: vincent3036<br />
+3036050726 WU Kwun To | Github_Username: To0424<br />
+3036066191 WONG Ho Wang | Github_Username: 6969Jan6969<br />
+3036066971 CHAN Wai Yiu | Github_Username: Nameless0-0<br />
 
 
 Game Description: <br />
@@ -21,8 +21,8 @@ Game Rule: <br />
 2. Enjoy!
 
 **Features implemented:** <br/>
-Generation of random game sets or events: Used in wordle part to random generate a word from word list to be guessed.
-Data structures for storing game status: Vector and Map have been used to store Player/Enemy HP and Attack values.
-Dynamic memory management: We used vector in wordle with .shrink() function to ensure no extra memory is used.
-File input/output: We used a word_list.txt to store all the words for wordle and import all of them into a vector when executing the code so that extra words could be added easily.
+Generation of random game sets or events: Used in wordle part to random generate a word from word list to be guessed. <br/>
+Data structures for storing game status: Vector and Map have been used to store Player/Enemy HP and Attack values.<br/>
+Dynamic memory management: We used vector in wordle with .shrink() function to ensure no extra memory is used.<br/>
+File input/output: We used a word_list.txt to store all the words for wordle and import all of them into a vector when executing the code so that extra words could be added easily.<br/>
 //missing compliation instructions
