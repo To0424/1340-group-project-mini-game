@@ -4,7 +4,7 @@ main: battle.o shop.o main.o print-drawing.o wordle.o menu.o
 	g++ $(FLAGS) $^ -o main
 
 print-drawing.o: print-drawing.cpp print-drawing.h
-	g++ $(FLAGS) -c  print-drawing.cpp
+	g++ $(FLAGS) -c print-drawing.cpp
 
 menu.o: menu.cpp menu.h
 	g++ $(FLAGS) -c menu.cpp
