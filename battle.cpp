@@ -41,7 +41,7 @@ void init_intro() {
 	cout << "Tutorial:" << endl;
 	cout << endl;
 	sleep(1);
-	cout << "This game is a combination of Wordle and Rouge-like RPG game." << endl;
+	cout << "This game is a combination of Wordle and Rogue-like RPG game." << endl;
 	cout << endl;
 	sleep(1);
 	cout << "This means once you die, you have to play it again." << endl;
