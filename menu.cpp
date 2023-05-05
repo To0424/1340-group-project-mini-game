@@ -1,31 +1,32 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
+#include <unistd.h>
 #include "menu.h"
 
 using namespace std;
 
-//Are Sleep changed?
+//Are sleep changed?
 
-int menu() {
+int menu() {                      //This function have no input, but the return type is integer (1 or 0)
+                                  //Allow user to choose whether to start the game or quit.
 
     system("cls");
     system("clear");
 
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
+   cout << "\033[1m";
 
     cout << "Welcome to Archeforce!" << endl << endl;
     cout << "=======================" <<endl;
     cout << "||";
-    SetConsoleTextAttribute(hConsole, 2); 
+    cout << "\033[1;32m";
     cout << "   1. Start Game   ";
-    SetConsoleTextAttribute(hConsole, 15); 
+    cout << "\033[0m";
     cout << "||" << endl;
     cout << "=======================" <<endl;
     cout << "||" ;
-    SetConsoleTextAttribute(hConsole, 2); 
+    cout << "\033[1;32m";
     cout << "     2. Quit       " ;
-    SetConsoleTextAttribute(hConsole, 15); 
+    cout << "\033[0m";
     cout << "||" << endl;
     cout << "=======================" <<endl;
 
@@ -41,23 +42,15 @@ int menu() {
             cout << "Invalid choice. Please enter 1 or 2." << endl;
         }
     }
-    /*do {
-        cout << "Enter your choice (1 or 2): ";
-        cin >> choice;
-
-        if (choice != 1 && choice != 2) {
-            cout << "Invalid choice. Please enter 1 or 2." << endl;
-        }
-    } while (choice != 1 && choice != 2); */
 
     switch (choice) {
         case 1:
             cout << endl << "Starting game..." << endl;
-            Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
+            sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             return 1;
         case 2:
             cout << endl << "Quitting game..." << endl;
-            Sleep(3000); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
+            sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             return 0;
     }
 }
