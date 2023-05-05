@@ -1,10 +1,10 @@
 # 1340_Group155
 
 Members:  <br />
-3036086012 CHAN Tsz Chung Github_Username: vincent3036<br />
-3036050726 WU Kwun To Github_Username: To0424<br />
-3036066191 WONG Ho Wang Github_Username: 6969Jan6969<br />
-3036066971 CHAN Wai Yiu Github_Username: Nameless0-0<br />
+3036086012 CHAN Tsz Chung | Github_Username: vincent3036<br />
+3036050726 WU Kwun To | Github_Username: To0424<br />
+3036066191 WONG Ho Wang | Github_Username: 6969Jan6969<br />
+3036066971 CHAN Wai Yiu | Github_Username: Nameless0-0<br />
 
 
 Game Description: <br />
