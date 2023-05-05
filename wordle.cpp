@@ -5,7 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
-#include <time.h>
+#include <ctime>
 #include <stdlib.h>
 using namespace std;
 
