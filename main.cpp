@@ -10,11 +10,9 @@ int main() {
 	cout << "Please Use Full Screen mode!" << endl;
 	cout << "<Press Enter once completed>";
 	cin.ignore();
-	system("cls");
 	system("clear");
 	int temp = menu();
 	if (temp) {
-		system("cls");
 		system("clear");
 		battle();
 		int printx;
@@ -22,7 +20,6 @@ int main() {
 		print(printx);
 		cout << "<Press Enter to Exit the Game>";
 		cin.ignore();
-		system("cls");
 		system("clear");
 	}
 return 0;
