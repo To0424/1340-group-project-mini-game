@@ -21,7 +21,7 @@ string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This fu
     cout <<"                         `\"Y88b  888     888  888      888  888                           "<<endl;    
     cout <<"                     oo     .d8P  888     888  `88b    d88'  888                          "<<endl;     
     cout <<"                     8\"\"88888P'  o888o   o888o  `Y8bood8P'  o888o                        "<<endl<<endl;
-    cout<< "\033[0m"
+    cout<< "\033[0m";
 
     cout << "============================================================================================" <<endl;
 
@@ -196,7 +196,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                 cout <<endl << "============================================================================================" << endl;
                 cout << "\033[1;32m";
                 cout << "You're too Strong! You cannot upgrade your HP anymore!!"<<endl;
-                cout << "\033[0m"
+                cout << "\033[0m";
                 sleep(3);
                 break;
             }
@@ -216,11 +216,11 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                 sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";sleep(0.1);
                 cout << "\033[1;32m";
                 cout << "STRENGTH."<<endl;
-                cout << "\033[1m"
+                cout << "\033[1m";
                 sleep(1);
                 cout << "Your maximum HP has increased!" << endl;
                 cout << count_HP << " times upgrade left!"<<endl;
-                cout << "\033[0m"
+                cout << "\033[0m";
                 sleep(3);
                 break;
             }
