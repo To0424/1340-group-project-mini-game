@@ -62,6 +62,12 @@ void init_intro() {
 	cout << "There will be TEN level in total." << endl;
 	cout << endl;
 	sleep(1);
+	cout << "Each round you have to guess a 5 letter word." << endl;
+	cout << endl;
+	sleep(1);
+	cout << "Attack could be made only by making correct guess." << endl;
+	cout << endl;
+	sleep(1);
 	cout << "Upgrades such as Attack and HP will be avaliable in shop." << endl;
 	cout << endl;
 	sleep(1);
@@ -298,8 +304,8 @@ int battle() {
 						int recover_hp = 0;
 						if (round_player_hp == hp) {
 							system("clear");
-						}else if (hp * 0.2 + round_player_hp < hp) {
-							recover_hp = hp * 0.2;
+						}else if (hp * 0.4 + round_player_hp < hp) {
+							recover_hp = hp * 0.4;
 						}else {
 							recover_hp = hp - round_player_hp;
 						}
