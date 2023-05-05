@@ -20,7 +20,7 @@ clean:
 	rm -f *.o game.tgz
 
 tar:
-	tar -czvf game.tgz *cpp *.h
+	tar -czvf game.tgz *.cpp *.h
 
 .PHONY: 
 	clean tar
