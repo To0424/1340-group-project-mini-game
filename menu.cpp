@@ -2,6 +2,7 @@
 #include <string>
 #include <unistd.h>
 #include "menu.h"
+#include <cstdlib>
 
 using namespace std;
 
