@@ -244,7 +244,7 @@ int battle() {
 	map<int, int> enemyatk;
 	enemyatk[1] = 10; enemyatk[2] = 15; enemyatk[3] = 20; enemyatk[4] = 20; enemyatk[5] = 30; enemyatk[6] = 30; enemyatk[7] = 40; enemyatk[8] = 40; enemyatk[9] = 45; enemyatk[10] = 50;
 	map<int, int> money;
-	money[1] = 25; money[2] = 50; money[3] = 75; money[4] = 100; money[5] = 150; money[6] = 200; money[7] = 250; money[8] = 300; money[9] = 300;
+	money[1] = 50; money[2] = 244; money[3] = 486; money[4] = 737; money[5] = 951; money[6] = 1043; money[7] = 1224; money[8] = 1421; money[9] = 2000;
 	init_intro();
 	system("clear");
 	while (level < 10) {
