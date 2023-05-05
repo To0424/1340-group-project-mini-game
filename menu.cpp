@@ -43,12 +43,13 @@ int menu() {                      //This function have no input, but the return 
             break;
         }
       else 
-      {
+        {
             cout << "Invalid choice. Please enter 1 or 2." << endl;
         }
     }
 
-    switch (choice) {
+    switch (choice) 
+{
         case 1:
             cout << endl << "Starting game..." << endl;
             sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
@@ -58,4 +59,6 @@ int menu() {                      //This function have no input, but the return 
             sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
             return 0;
     
+}
+  return;
 }
