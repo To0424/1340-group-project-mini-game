@@ -27,5 +27,6 @@ Dynamic memory management: We used vector in wordle with .shrink() function to e
 File input/output: We used a word_list.txt to store all the words for wordle and import all of them into a vector when executing the code so that extra words could be added easily.<br/>
 
 HOW TO COMPILE <br/>
-type "make" to compile the file and type "make clean" to clean * .o file.<br/>
-Then type the command "./main" to run the game.<br/>
+1. Download this Repo with "git clone https://github.com/vincent3036/1340_Group155", or choose download as zip and unzip it.
+2. Type "make" to compile the file and type "make clean" to clean * .o files.<br/>
+3. Type the command "./main" to run the game.<br/>
