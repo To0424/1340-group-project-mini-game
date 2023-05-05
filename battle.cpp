@@ -320,10 +320,10 @@ int battle() {
 						cout << "Your HP is increased by 10!" << endl;
 						round_player_hp += 10;
 					}else {
-						round_player_hp += hp - round_player_hp;
 						cout << "You feel refreshing!" << endl;
 						sleep(1);
 						cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
+						round_player_hp += hp - round_player_hp;
 					}
 					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp,level);
 					if (def_or_atk == 2) {//attack
