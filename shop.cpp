@@ -1,18 +1,18 @@
 #include <iostream>
-#include <windows.h>
+#include <unistd.h>
 #include <string>
 #include <cstdlib>
 #include "shop.h"
 
 using namespace std;
 
-string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This function will show what you can buy in the shop, //
+string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This function will show what you can buy in the shop, what you choose to buy(1,2,3) and 4 is going back //
                                                                        //and allow you to go back previous page.//
-                                                                       //User input is the what you choose to buy(1,2,3) and 4 is going back. 
-                                                                       //The output of user input will show in the shop function.      
+                                                                       //User input is gold, your attack damge, your hp, and the counter of passive skill . 
+                                                                       //The output is the choice which user inputted in string.    
     system("cls");
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
-    SetConsoleTextAttribute(hConsole, 11);
+ 
+    cout << "\033[1;34m";
     cout <<endl;
     cout <<"                      .oooooo..o ooooo   ooooo   .oooooo.   ooooooooo.                         "<<endl;
     cout <<"                     d8P'    `Y8 `888'   `888'  d8P'  `Y8b  `888   `Y88.                       "<<endl;
@@ -21,24 +21,25 @@ string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This fu
     cout <<"                         `\"Y88b  888     888  888      888  888                           "<<endl;    
     cout <<"                     oo     .d8P  888     888  `88b    d88'  888                          "<<endl;     
     cout <<"                     8\"\"88888P'  o888o   o888o  `Y8bood8P'  o888o                        "<<endl<<endl;
-    SetConsoleTextAttribute(hConsole, 15);
+    cout<< "\033[0m"
 
     cout << "============================================================================================" <<endl;
-    SetConsoleTextAttribute(hConsole, 6); 
-    cout << "You have: "<< gold << " gold"<< endl;
-    cout << "Your ATK: "<< ATK << endl;
-    cout << "Your HP: "<< HP << endl;
+
+    cout << "You have: "<< "\033[1;33m" <<gold << "\033[0m" << " gold"<< endl;
+    cout << "Your ATK: "<< "\033[1;31m" <<ATK << "\033[0m" << endl;
+    cout << "Your HP: "<< "\033[1;32m" <<HP << "\033[0m" << endl;
     string temp = "False";
     if (count_passiveskill) {
         temp = "True";
     }
-    cout << "Passive Skill: " << temp << endl;
-    SetConsoleTextAttribute(hConsole, 15); 
+    cout << "\033[1;32m" << "Passive Skill: " << temp <<  "\033[0m" << endl;
+    
+ 
     cout << "============================================================================================" <<endl;
 
 
 
-    SetConsoleTextAttribute(hConsole, 12); 
+    cout<< "\033[1;31m";
 
     cout <<"             //>                                                                  " <<endl;
     cout <<"()          //---------------------------------------------------------(        "<<endl;
@@ -46,23 +47,24 @@ string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This fu
     cout <<"()          \\\\-----------------------------------------------------------)      "<<endl;
     cout <<"             \\\\>                                                                  "<<endl;
     
-    SetConsoleTextAttribute(hConsole, 15); 
+    cout<< "\033[0m";
 
     cout << "============================================================================================" <<endl;
 
-    SetConsoleTextAttribute(hConsole, 2); 
-    cout << ",d88b.d88b,"<< "                                                     "<<"          ,d88b.d88b,          "<<endl;
-    cout << "88888888888"<< "                  2. Incrase HP                      "<<"          88888888888           "<<endl;
-    cout << "`Y8888888Y'"<< "                     (MAX:10)                        "<<"          `Y8888888Y'             "<<endl;
-    cout << "  `Y888Y'  "<< "        3. Passive skill: HP Recover (Max: 1)        "<<"            `Y888Y'             "<<endl;
-    cout << "    `Y'    "<< "                                                     "<<"              `Y'            "<<endl;
-    SetConsoleTextAttribute(hConsole, 15); 
+    cout<< "\033[1;32m";
+
+    cout << ",d88b.d88b,"<< "                                                   "<<"         ,d88b.d88b,          "<<endl;
+    cout << "88888888888"<< "                  2. Incrase HP                    "<<"         88888888888           "<<endl;
+    cout << "`Y8888888Y'"<< "                     (MAX:10)                      "<<"         `Y8888888Y'             "<<endl;
+    cout << "  `Y888Y'  "<< "        3. Passive skill: HP Recover (Max: 1)      "<<"           `Y888Y'             "<<endl;
+    cout << "    `Y'    "<< "                                                   "<<"             `Y'            "<<endl;
+    cout<< "\033[0m";
 
     cout << "============================================================================================" <<endl<<endl;
+    cout << "\033[1m";
     cout << "                               4. Back                                                      "<<endl<<endl;
     cout << "============================================================================================" << endl;
 
-    //int choice;//
     string choice;
     while (true) {
         cout << "Enter your choice (1, 2, 3 or 4): " << endl;
@@ -87,14 +89,12 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                                                             //allow you to confirm the price of everything in shop
                                                             //Also telling user the maximum times of buying the item.
                                                             //You are also allowed to go back to shop list, if you enter wrong your choice in shop list.
-                                                            //The first input of this function is in the function showshop, 
-                                                            //The second input is confirm whether you buy or not. (Y/N)
-                                                            //The output is some text for you to confirm you are bought what you wanted. 
+                                                            //The input is player gold, attack damage, Hp, counter of passiveskill,upgrade of Attack and HP.
+                                                            
+                                                            //The output return a integer. 
                                                             //And what it actually do is to change your status after you bought the thing by pass by reference.
 
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE); 
     int choice;
-    
     string input, ans,a;
     while (true) 
     {
@@ -104,7 +104,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
         if (choice == 4)
         {
             cout << endl << "you are going back..."<< endl;
-            Sleep(1000);
+            sleep(1);
             system("clear");
             system("cls");
             break;
@@ -115,7 +115,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             int pay1;
             pay1 = abs(count_ATK - 10) * 67 + 20;
             cout <<endl << "============================================================================================" << endl;
-            cout << "This upgrade will consume you " << pay1 <<" Golds"<<endl;
+            cout << "This upgrade will consume you " << "\033[1;33m" << pay1 <<" Golds"<< "\033[0m"<<endl;
             cout << "You have " << count_ATK << " times left" <<endl;
             cout << "Are you ready to upgrade your attack damage? (Y/N)" <<endl;
             cin >> ans;
@@ -125,10 +125,10 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                 {
                     
                     cout <<endl << "============================================================================================" << endl;
-                    SetConsoleTextAttribute(hConsole, 12);
+                    cout << "\033[1;31m";
                     cout << "You're too powerful! You cannot upgrade your attack damage anymore!!"<<endl;
-                    SetConsoleTextAttribute(hConsole, 15);
-                    Sleep(3000);
+                    cout << "\033[0m";
+                    sleep(3);
                     break;
                 }
                 else if (count_ATK <= 10 && count_ATK >= 1 && gold >= pay1) 
@@ -139,28 +139,28 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                     --count_ATK; 
 
 
-                    Sleep(200);
-                    SetConsoleTextAttribute(hConsole, 10);
-                    cout << endl << "You";Sleep(200);cout<<" feel";Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";
-                    Sleep(200);cout << "something";Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";
-                    Sleep(200);cout <<"You're";Sleep(200);cout<<" filled with";
-                    Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";Sleep(100);
-                    SetConsoleTextAttribute(hConsole, 12);
+                    sleep(0.2);
+                    cout << "\033[1m";
+                    cout << endl << "You";sleep(0.2);cout<<" feel";sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";
+                    sleep(0.2);cout << "something";sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";
+                    sleep(0.2);cout <<"You're";sleep(0.2);cout<<" filled with";
+                    sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";sleep(0.1);
+                    cout >> "\033[1;31m";
                     cout<<"POWER." <<endl;
-                    SetConsoleTextAttribute(hConsole, 10);
-                    Sleep(1000);
+                    cout << "\033[1m";
+                    sleep(1);
                     cout << "Your attack damage has incrased!" << endl;
                     cout << count_ATK << " times upgrade left!"<<endl;
-                    SetConsoleTextAttribute(hConsole, 15);
-                    Sleep(3000);
+                    cout << "\033[0m";
+                    sleep(3);
                     
                     break;
                 }
                 else
                 {
-                Sleep(200);
+                sleep(0.2);
                 cout<<"Sorry, you don't have enough gold to pay for it..."<<endl;
-                Sleep(5000);
+                sleep(5);
                 break;
                 }
             
@@ -174,7 +174,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             {
                 cout <<endl << "============================================================================================" << endl;
                 cout <<endl<< "Invalid input, Please enter Y or N next time"<<endl;
-                Sleep(2000);
+                sleep(2);
                 break;
             }
 
@@ -185,7 +185,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             pay2 = abs(count_HP - 10) * 67 + 20;
 
             cout <<endl << "============================================================================================" << endl;
-            cout << "This upgrade will consume you " << pay2 <<" Golds"<<endl;
+            cout << "This upgrade will consume you " << "\033[1;33m" << pay2 <<" Golds"<< "\033[0m" <<endl;
             cout << "You have " << count_HP << " times left" <<endl;
             cout << "Are you ready to upgrade your HP? (Y/N)" <<endl;
             cin >> ans;
@@ -194,10 +194,10 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             if (count_HP == 0 && gold >= pay2) 
             {
                 cout <<endl << "============================================================================================" << endl;
-                SetConsoleTextAttribute(hConsole, 12);
+                cout << "\033[1;32m";
                 cout << "You're too Strong! You cannot upgrade your HP anymore!!"<<endl;
-                SetConsoleTextAttribute(hConsole, 15);
-                Sleep(3000);
+                cout << "\033[0m"
+                sleep(3);
                 break;
             }
             else if (count_HP <= 10 && count_HP >= 1 && gold >= pay2) 
@@ -208,27 +208,27 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                 --count_HP;
 
 
-                Sleep(200);
-                SetConsoleTextAttribute(hConsole, 10);
-                cout << endl << "You";Sleep(200);cout<<" feel";Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";
-                Sleep(200);cout << "something";Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";
-                Sleep(200);cout <<"You're";Sleep(200);cout<<" filled with";
-                Sleep(500);cout <<".";Sleep(500);cout <<".";Sleep(500);cout <<". ";Sleep(100);
-                SetConsoleTextAttribute(hConsole, 14);
+                sleep(0.2);
+                cout << "\033[1m";
+                cout << endl << "You";sleep(0.2);cout<<" feel";sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";
+                sleep(0.2);cout << "something";sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";
+                sleep(0.2);cout <<"You're";sleep(0.2);cout<<" filled with";
+                sleep(0.5);cout <<".";sleep(0.5);cout <<".";sleep(0.5);cout <<". ";sleep(0.1);
+                cout << "\033[1;32m";
                 cout << "STRENGTH."<<endl;
-                SetConsoleTextAttribute(hConsole, 10);
-                Sleep(1000);
+                cout << "\033[1m"
+                sleep(1);
                 cout << "Your maximum HP has increased!" << endl;
                 cout << count_HP << " times upgrade left!"<<endl;
-                SetConsoleTextAttribute(hConsole, 15);
-                Sleep(3000);
+                cout << "\033[0m"
+                sleep(3);
                 break;
             }
             else
                 {
-                Sleep(200);
+                sleep(0.2);
                 cout<<"Sorry, you don't have enough gold to pay for it..."<<endl;
-                Sleep(5000);
+                sleep(5);
                 break;
                 }
 
@@ -242,23 +242,23 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             {
                 cout <<endl << "============================================================================================" << endl;
                 cout <<endl<< "Invalid input, Please enter Y or N next time"<<endl;
-                Sleep(2000);
+                sleep(2);
                 break;
             }
         case 3:
             cout <<endl << "============================================================================================" << endl;
-            cout << "This upgrade will consume you 500 Golds"<<endl;
+            cout << "This upgrade will consume you " << "\033[1;33m" << "500 Golds"<< "\033[0m" <<endl;
             cout << "Are you ready to receive your Passive Skill? (Y/N)" <<endl;
             cin >> ans;
             if (ans == "Y" || ans == "Yes" || ans == "yes" || ans == "YES" || ans == "y")
             {
-            if (count_passiveskill == 1  && gold >= 500) 
+            if (count_passiveskill == 1 && gold >= 500) 
             {
                 cout <<endl << "============================================================================================" << endl;
-                SetConsoleTextAttribute(hConsole, 12);
+                cout << "\033[1;32m";
                 cout << "You already had it..."<<endl;
-                SetConsoleTextAttribute(hConsole, 15);
-                Sleep(3000);
+                cout << "\033[0m";
+                sleep(3);
                 break;
             }
             else if (count_passiveskill == 0 && gold >= 500) 
@@ -266,18 +266,18 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
                 cout <<endl << "============================================================================================" << endl;
                 gold = gold - 500;
                 ++count_passiveskill;
-                SetConsoleTextAttribute(hConsole, 10);
+                cout << "\033[1;32m";
                 cout << "You got a passive skill:HP Recover now!"<<endl;
-                SetConsoleTextAttribute(hConsole, 15);
-                Sleep(3000);
+                cout << "\033[0m";
+                sleep(3);
                 break;
 
             }
             else
                 {
-                Sleep(200);
+                sleep(0.2);
                 cout<<"Sorry, you don't have enough gold to pay for it..."<<endl;
-                Sleep(5000);
+                sleep(5);
                 break;
                 }
             }
@@ -289,7 +289,7 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             {
                 cout <<endl << "============================================================================================" << endl;
                 cout <<endl<< "Invalid input, Please enter Y or N next time"<<endl;
-                Sleep(2000);
+                sleep(2);
                 break;
             }
     
