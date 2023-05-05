@@ -236,8 +236,8 @@ void attackbyenemyui(int &p_hp, int damage) {
 //Main function to run the game. No input. Return 0 to main.cpp if player won.
 int battle() {
 	srand(time(NULL));
-	int gold = 0, atk = 10, hp = 100, passive_skill = 1, count_HP = 10, count_ATK = 10;
-	int level = 9;
+	int gold = 0, atk = 10, hp = 100, passive_skill = 0, count_HP = 10, count_ATK = 10;
+	int level = 1;
 	int wordle_round = 0;
 	map<int, int> enemyhp;
 	enemyhp[1] = 30; enemyhp[2] = 40; enemyhp[3] = 50; enemyhp[4] = 70; enemyhp[5] = 100; enemyhp[6] = 120; enemyhp[7] = 150; enemyhp[8] = 160; enemyhp[9] = 160; enemyhp[10] = 200;
