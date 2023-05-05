@@ -25,4 +25,7 @@ Generation of random game sets or events: Used in wordle part to random generate
 Data structures for storing game status: Vector and Map have been used to store Player/Enemy HP and Attack values.<br/>
 Dynamic memory management: We used vector in wordle with .shrink() function to ensure no extra memory is used.<br/>
 File input/output: We used a word_list.txt to store all the words for wordle and import all of them into a vector when executing the code so that extra words could be added easily.<br/>
-//missing compliation instructions
+
+HOW TO COMPILE <br/>
+type "make" to compile the file and type "make clean" to clean * .o file.<br/>
+Then type the command "./main" to run the game.<br/>
