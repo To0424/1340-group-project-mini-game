@@ -7,6 +7,7 @@ using namespace std;
 
 //Function for running the game. No input. No output.
 int main() {
+	system("clear");
 	cout << "Please Use Full Screen mode!" << endl;
 	cout << "<Press Enter once completed>";
 	cin.ignore();
