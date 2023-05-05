@@ -19,7 +19,7 @@ battle.o: battle.cpp battle.h wordle.h shop.h print-drawing.h
 	g++ $(FLAGS) -c battle.cpp
 
 clean:
-	rm -f *.o game.tgz
+	rm -f *.o game.tgz main
 
 tar:
 	tar -czvf game.tgz *.cpp *.h
