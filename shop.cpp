@@ -10,7 +10,7 @@ string showshop(int &gold, int &ATK, int &HP, int count_passiveskill){ //This fu
                                                                        //and allow you to go back previous page.//
                                                                        //User input is gold, your attack damge, your hp, and the counter of passive skill . 
                                                                        //The output is the choice which user inputted in string.    
-    system("cls");
+    system("clear");
  
     cout << "\033[1;34m";
     cout <<endl;
@@ -106,7 +106,6 @@ int shop(int &gold, int &ATK, int &HP,int &count_passiveskill,int &count_ATK,int
             cout << endl << "you are going back..."<< endl;
             sleep(1);
             system("clear");
-            system("cls");
             break;
         }
     switch (choice) 
