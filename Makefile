@@ -1,4 +1,4 @@
-FLAGS = -pendantic-errors -std=c++11
+FLAGS = -pedantic-errors -std=c++11
 
 main: battle.o shop.o main.o print-drawing.o wordle.o menu.o
 	g++ $(FLAGS) $^ -o main
