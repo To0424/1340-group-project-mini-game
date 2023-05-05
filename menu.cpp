@@ -70,7 +70,7 @@ int menu() {                      //This function have no input, but the return 
        //     sleep(3); // windows is in ms, Unix(Mac/linus) is in Second. Remember to modify this!!!!!
        //     return 0;
     
-}
-return 0
+
+
 
 }
