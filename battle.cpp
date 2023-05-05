@@ -137,13 +137,13 @@ int battleui(int playerhp, int enemyhp,int enemyatk,int fullhp,int level) {
 	printx = 3;
 	print(printx);
 	cout << "=====================================================" << endl;
-	cout << "|             What are you going to do?             |" << endl;
+	cout << "              What are you going to do?              " << endl;
 	cout << "=====================================================" << endl;
-	cout << "|        1.Defence        |          2.Attack       |" << endl;
+	cout << "         1.Defence                   2.Attack        " << endl;
 	cout << "=====================================================" << endl;
-	cout << "|        Current HP: " << playerhp << "  |    Current Level: " << level << "     |" << endl;
+	cout << "         Current HP: " << playerhp << "       Current Level: " << level << "      " << endl;
 	cout << "=====================================================" << endl;
-	cout << "|        Enemy HP: " << enemyhp << "     |    Enemy ATK: " << enemyatk << "        |" << endl;
+	cout << "         Enemy HP: " << enemyhp << "          Enemy ATK: " << enemyatk << "         " << endl;
 	cout << "=====================================================" << endl;
 	while (true) {
 		cout << "Enter your choice (1 or 2): " << endl;
@@ -298,10 +298,11 @@ int battle() {
 					//check is play bought recover skill
 					if (passive_skill) {
 						int recover_hp = 0;
-						if (hp * 0.2 + round_player_hp < hp) {
-							recover_hp = hp * 0.2 + round_player_hp;
-						}
-						else {
+						if (round_player_hp == hp) {
+							system("cls");
+						}else if (hp * 0.2 + round_player_hp < hp) {
+							recover_hp = hp * 0.2;
+						}else {
 							recover_hp = hp - round_player_hp;
 						}
 						cout << "Passive Skill!" << endl;
@@ -313,20 +314,20 @@ int battle() {
 						cin.ignore();
 						//system("cls");
 						system("clear");
-					}else{
-						if (round_player_hp == hp) {
-							system("clear");
-						}else if (round_player_hp + 10 >= hp) {
-							cout << "You feel refreshing!" << endl;
-							Sleep(1);
-							cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
-							round_player_hp += hp - round_player_hp;
-						}else {
-							round_player_hp += 10;
-							cout << "You feel refreshing!" << endl;
-							Sleep(1);
-							cout << "Your HP is increased by 10!" << endl;
-						}
+					}
+					if (round_player_hp == hp) {
+						//stem("cls");
+						system("clear");
+					}else if (round_player_hp + 10 < hp) {
+						cout << "You feel refreshing!" << endl;
+						Sleep(1;
+						cout << "Your HP is increased by 10!" << endl;
+						round_player_hp += 10;
+					}else {
+						round_player_hp += hp - round_player_hp;
+						cout << "You feel refreshing!" << endl;
+						Sleep(1;
+						cout << "Your HP is increased by " << hp - round_player_hp << " !" << endl;
 					}
 					def_or_atk = battleui(round_player_hp,round_enemy_hp,enemyatk[level],hp,level);
 					if (def_or_atk == 2) {//attack
